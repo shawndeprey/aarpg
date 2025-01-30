@@ -1,6 +1,7 @@
 class_name Player extends CharacterBody2D
 
 var cardinal_direction: Vector2 = Vector2.DOWN
+const DIR_4: Array = [Vector2.RIGHT, Vector2.DOWN, Vector2.LEFT, Vector2.UP]
 var direction: Vector2 = Vector2.ZERO # A Vector2 contains 2 numbers, and x and a y
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
@@ -19,18 +20,12 @@ func _physics_process(_delta: float) -> void:
 	move_and_slide() # This function already handles frame-rate independent movement, thus, we do not need to multiply our values by delta.
 
 func SetDirection() -> bool:
-	# Determine new direction based on previous physics input operation
-	var new_direction: Vector2 = cardinal_direction
-	if direction == Vector2.ZERO:
-		return false
-	if direction.y == 0:
-		new_direction = Vector2.LEFT if direction.x < 0 else Vector2.RIGHT
-	elif direction.x == 0:
-		new_direction = Vector2.UP if direction.y < 0 else Vector2.DOWN
+	if direction == Vector2.ZERO: return false
+	var direction_id: int = int(round((direction + cardinal_direction * 0.1).angle() / TAU * DIR_4.size()))
+	var new_direction: Vector2 = DIR_4[direction_id]
 
 	# If direction hasn't changed, just escape without changing direction
-	if new_direction == cardinal_direction:
-		return false
+	if new_direction == cardinal_direction: return false
 	
 	# Update new direction and change sprite scale(horizontal flip) based on current direction
 	cardinal_direction = new_direction
