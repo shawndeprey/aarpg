@@ -7,6 +7,8 @@ var direction: Vector2 = Vector2.ZERO # A Vector2 contains 2 numbers, and x and 
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var state_machine: PlayerStateMachine = $StateMachine
 
+signal DirectionChanged(new_direction: Vector2)
+
 func _ready() -> void:
 	state_machine.Initialize(self)
 
@@ -33,6 +35,7 @@ func SetDirection() -> bool:
 	# Update new direction and change sprite scale(horizontal flip) based on current direction
 	cardinal_direction = new_direction
 	sprite_2d.scale.x = -1 if cardinal_direction == Vector2.LEFT else 1
+	DirectionChanged.emit(cardinal_direction)
 	return true
 
 func UpdateAnimation(state: String) -> void:
