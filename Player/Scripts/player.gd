@@ -9,24 +9,12 @@ var direction: Vector2 = Vector2.ZERO # A Vector2 contains 2 numbers, and x and 
 
 func _ready() -> void:
 	state_machine.Initialize(self)
-	pass # Replace with function body.
 
 func _process(_delta: float) -> void:
-	pass
+	direction = Vector2(Input.get_axis("left", "right"), Input.get_axis("up", "down")).normalized()
 
 func _physics_process(_delta: float) -> void:
-	direction = Vector2.ZERO
-	if Input.is_action_pressed("up"): direction.y -= 1
-	if Input.is_action_pressed("down"): direction.y += 1
-	if Input.is_action_pressed("left"): direction.x -= 1
-	if Input.is_action_pressed("right"): direction.x += 1
-
-	# Normalize double input artifact common in 2D games
-	if direction != Vector2.ZERO:
-		direction = direction.normalized()
-	
-	# This function already handles frame-rate independent movement, thus, we do not need to multiply our values by delta.
-	move_and_slide()
+	move_and_slide() # This function already handles frame-rate independent movement, thus, we do not need to multiply our values by delta.
 
 func SetDirection() -> bool:
 	# Determine new direction based on previous physics input operation
