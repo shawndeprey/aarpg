@@ -512,6 +512,7 @@ autoplay = "no_attack"
 [node name="AttackHurtBox" parent="Sprite2D" instance=ExtResource("10_t8hol")]
 unique_name_in_owner = true
 position = Vector2(0, 34)
+collision_layer = 256
 collision_mask = 256
 monitoring = false
 
