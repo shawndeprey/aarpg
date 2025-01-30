@@ -11,6 +11,7 @@ var direction: Vector2 = Vector2.ZERO # A Vector2 contains 2 numbers, and x and 
 signal DirectionChanged(new_direction: Vector2)
 
 func _ready() -> void:
+	PlayerManager.player = self
 	state_machine.Initialize(self)
 
 func _process(_delta: float) -> void:

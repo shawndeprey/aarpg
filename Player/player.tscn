@@ -493,7 +493,7 @@ hframes = 16
 vframes = 3
 
 [node name="ShadowSprite" type="Sprite2D" parent="Sprite2D"]
-modulate = Color(0, 0, 0, 0.784314)
+modulate = Color(0, 0, 0, 0.654902)
 show_behind_parent = true
 position = Vector2(0, 20)
 texture = ExtResource("3_s61ju")
