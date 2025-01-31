@@ -19,7 +19,7 @@ func _ready() -> void:
 	PlayerManager.player = self
 	state_machine.Initialize(self)
 	hit_box.Damaged.connect(TakeDamage)
-	UpdateHp(99)
+	update_hp(99)
 
 func _process(_delta: float) -> void:
 	direction = Vector2(Input.get_axis("left", "right"), Input.get_axis("up", "down")).normalized()
@@ -51,12 +51,13 @@ func AnimDireciton() -> String:
 
 func TakeDamage(hurtbox: HurtBox) -> void:
 	if invulnerable: return
-	UpdateHp(-hurtbox.damage)
+	update_hp(-hurtbox.damage)
 	PlayerDamaged.emit(hurtbox)
-	if hp <= 0: UpdateHp(99)
+	if hp <= 0: update_hp(99)
 
-func UpdateHp(change: int) -> void:
+func update_hp(change: int) -> void:
 	hp = clampi(hp + change, 0, max_hp)
+	PlayerHud.update_hp(hp, max_hp)
 
 func MakeInvulnerable(_duration: float = 1.0) -> void:
 	invulnerable = true
