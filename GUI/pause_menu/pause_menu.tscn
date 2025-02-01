@@ -1,13 +1,41 @@
-[gd_scene load_steps=2 format=3 uid="uid://bpe4kqt0x2wam"]
+[gd_scene load_steps=8 format=3 uid="uid://bpe4kqt0x2wam"]
 
 [ext_resource type="Script" path="res://GUI/pause_menu/pause_menu.gd" id="1_m3t13"]
+[ext_resource type="Texture2D" uid="uid://sxya84p07rmh" path="res://Items/Sprites/items.png" id="2_6d2vv"]
+[ext_resource type="PackedScene" uid="uid://crdu7kagr00" path="res://GUI/pause_menu/inventory/inventory_slot.tscn" id="3_2qcj2"]
+[ext_resource type="Script" path="res://GUI/pause_menu/inventory/scripts/inventory_ui.gd" id="3_l4f3o"]
+[ext_resource type="Resource" uid="uid://crgd6ve5nyado" path="res://GUI/pause_menu/inventory/player_inventory.tres" id="4_3mgdn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gw13a"]
+atlas = ExtResource("2_6d2vv")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ue4rt"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+texture = SubResource("AtlasTexture_gw13a")
+texture_margin_left = 14.0
+texture_margin_top = 14.0
+texture_margin_right = 14.0
+texture_margin_bottom = 14.0
 
 [node name="PauseMenu" type="CanvasLayer"]
 process_mode = 3
 layer = 2
 script = ExtResource("1_m3t13")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -15,34 +43,84 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.729412)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -212.0
+offset_top = 20.0
+offset_right = -136.0
+offset_bottom = 43.0
+grow_horizontal = 2
+text = "[ paused ]"
+
+[node name="ItemDescription" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -211.0
+offset_top = 151.0
+offset_right = -19.0
+offset_bottom = 174.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 10
+text = "This red drink restores your health."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Control"]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 60.0
+offset_right = 224.0
+offset_bottom = 148.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_ue4rt")
+
+[node name="GridContainer" type="GridContainer" parent="Control/PanelContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+columns = 5
+script = ExtResource("3_l4f3o")
+data = ExtResource("4_3mgdn")
+
+[node name="InventorySlot" parent="Control/PanelContainer/GridContainer" instance=ExtResource("3_2qcj2")]
+layout_mode = 2
+size_flags_vertical = 2
+
+[node name="InventorySlot2" parent="Control/PanelContainer/GridContainer" instance=ExtResource("3_2qcj2")]
+layout_mode = 2
+size_flags_vertical = 2
+
+[node name="InventorySlot3" parent="Control/PanelContainer/GridContainer" instance=ExtResource("3_2qcj2")]
+layout_mode = 2
+size_flags_vertical = 2
+
+[node name="InventorySlot4" parent="Control/PanelContainer/GridContainer" instance=ExtResource("3_2qcj2")]
+layout_mode = 2
+size_flags_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -49.0
-offset_top = -33.0
-offset_right = 49.0
-offset_bottom = 33.0
+offset_left = -212.0
+offset_top = 79.0
+offset_right = -47.0
+offset_bottom = 110.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Button_Save" type="Button" parent="VBoxContainer"]
+[node name="Button_Save" type="Button" parent="Control/HBoxContainer"]
+custom_minimum_size = Vector2(75, 0)
 layout_mode = 2
 text = "Save"
 
-[node name="Button_Load" type="Button" parent="VBoxContainer"]
+[node name="Button_Load" type="Button" parent="Control/HBoxContainer"]
+custom_minimum_size = Vector2(75, 0)
 layout_mode = 2
 text = "Load"
-
-[node name="Label" type="Label" parent="."]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -38.0
-offset_top = 59.0
-offset_right = 38.0
-offset_bottom = 82.0
-grow_horizontal = 2
-text = "[ paused ]"
