@@ -8,6 +8,7 @@ signal shown
 signal hidden
 
 var is_paused: bool = false
+var ignore_input: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -16,6 +17,7 @@ func _ready() -> void:
 	button_load.pressed.connect(_on_load_pressed)
 
 func _unhandled_input(event: InputEvent) -> void:
+	if ignore_input: return
 	if event.is_action_pressed("pause"):
 		if !is_paused:
 			show_pause_menu()
