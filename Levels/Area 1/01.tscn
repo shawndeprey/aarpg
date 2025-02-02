@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=4 uid="uid://dmq754p8io34j"]
+[gd_scene load_steps=7 format=4 uid="uid://dmq754p8io34j"]
 
 [ext_resource type="Script" path="res://Levels/Scripts/level.gd" id="1_2fjci"]
 [ext_resource type="PackedScene" uid="uid://5aiygfxhkutu" path="res://Tile Maps/grass_01.tscn" id="1_uvvmw"]
 [ext_resource type="PackedScene" uid="uid://d2ipprfu64xk0" path="res://Levels/player_spawn.tscn" id="2_3f3mu"]
 [ext_resource type="PackedScene" uid="uid://boo2hdty4mmwe" path="res://Levels/level_transition.tscn" id="4_435l3"]
+[ext_resource type="PackedScene" uid="uid://de38whvpb1v0j" path="res://Enemies/goblin/goblin.tscn" id="6_qik73"]
 [ext_resource type="PackedScene" uid="uid://c0pyn5wtg67op" path="res://Enemies/Slime/slime.tscn" id="10_twk46"]
 
 [node name="01" type="Node2D"]
@@ -30,7 +31,7 @@ side = 3
 position = Vector2(417, 231)
 
 [node name="Slime2" parent="." instance=ExtResource("10_twk46")]
-position = Vector2(82, 214)
+position = Vector2(426, 48)
 
-[node name="Slime3" parent="." instance=ExtResource("10_twk46")]
-position = Vector2(410, 48)
+[node name="Slime3" parent="." instance=ExtResource("6_qik73")]
+position = Vector2(47, 120)

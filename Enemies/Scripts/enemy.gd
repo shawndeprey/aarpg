@@ -1,5 +1,5 @@
 class_name Enemy extends CharacterBody2D
-#signal direction_changed(new_direction: Vector2)
+signal direction_changed(new_direction: Vector2)
 signal enemy_damaged(hurtbox: HurtBox)
 signal enemy_destroyed(hurtbox: HurtBox)
 const DIR_4: Array = [Vector2.RIGHT, Vector2.DOWN, Vector2.LEFT, Vector2.UP]
@@ -43,6 +43,7 @@ func SetDirection(new_direction: Vector2) -> bool:
 	
 	# Update new direction and change sprite scale(horizontal flip) based on current direction
 	cardinal_direction = new_dir
+	direction_changed.emit( new_dir )
 	sprite.scale.x = -1 if cardinal_direction == Vector2.LEFT else 1
 	return true
 
