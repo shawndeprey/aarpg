@@ -19,12 +19,14 @@ position = Vector2(255, 148)
 [node name="LevelTransition" parent="." instance=ExtResource("4_435l3")]
 position = Vector2(544, 128)
 level = "res://playground.tscn"
+center_player = null
 side = 1
 
 [node name="LevelTransition2" parent="." instance=ExtResource("4_435l3")]
 position = Vector2(224, 320)
 monitoring = false
 level = "res://Levels/Area 1/02.tscn"
+center_player = null
 side = 3
 
 [node name="Slime" parent="." instance=ExtResource("10_twk46")]

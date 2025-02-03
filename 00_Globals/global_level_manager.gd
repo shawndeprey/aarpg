@@ -12,7 +12,7 @@ func _ready() -> void:
 	await get_tree().process_frame
 	level_loaded.emit()
 
-func ChangeTilemapBounds(bounds: Array[Vector2]) -> void:
+func change_tilemap_bounds(bounds: Array[Vector2]) -> void:
 	current_tilemap_bounds = bounds
 	TileMapBoundsChanged.emit(bounds)
 
