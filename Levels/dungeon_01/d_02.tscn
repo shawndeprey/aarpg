@@ -27,10 +27,11 @@ position = Vector2(512, 128)
 level = "res://Levels/dungeon_01/d_03.tscn"
 side = 1
 
+[node name="LockedDoor" parent="." instance=ExtResource("5_6rkqb")]
+position = Vector2(256, -16)
+
 [node name="LevelTransition3" parent="." instance=ExtResource("4_jq0te")]
 position = Vector2(256, 16)
 level = "res://Levels/dungeon_01/d_04.tscn"
+center_player = true
 side = 2
-
-[node name="LockedDoor" parent="." instance=ExtResource("5_6rkqb")]
-position = Vector2(256, -16)
