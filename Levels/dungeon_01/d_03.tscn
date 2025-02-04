@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=4 uid="uid://cskpmp0xnc8ry"]
+[gd_scene load_steps=10 format=4 uid="uid://cskpmp0xnc8ry"]
 
 [ext_resource type="Script" path="res://Levels/Scripts/level.gd" id="1_wxbhx"]
 [ext_resource type="PackedScene" uid="uid://cqkbam7xsllkw" path="res://Tile Maps/dungeon_01.tscn" id="2_jawhq"]
+[ext_resource type="AudioStream" uid="uid://d3q2qqfykd5kh" path="res://Levels/music/example_music_03.ogg" id="2_kfd7d"]
 [ext_resource type="PackedScene" uid="uid://d2ipprfu64xk0" path="res://Levels/player_spawn.tscn" id="3_5ifp2"]
 [ext_resource type="PackedScene" uid="uid://boo2hdty4mmwe" path="res://Levels/level_transition.tscn" id="4_nku88"]
 [ext_resource type="PackedScene" uid="uid://c2r3iaxho1eyv" path="res://GeneralNodes/enemy_counter/enemy_counter.tscn" id="5_g2hqj"]
@@ -9,8 +10,9 @@
 [ext_resource type="PackedScene" uid="uid://bnvcdygaiydgd" path="res://GeneralNodes/item_dropper/item_dropper.tscn" id="7_uomuk"]
 [ext_resource type="Resource" uid="uid://crgsaqeofb0pp" path="res://Items/key_dungeon.tres" id="8_7lcyy"]
 
-[node name="d_04" type="Node2D"]
+[node name="d_03" type="Node2D"]
 script = ExtResource("1_wxbhx")
+music = ExtResource("2_kfd7d")
 
 [node name="Dungeon01" parent="." instance=ExtResource("2_jawhq")]
 z_index = -1
