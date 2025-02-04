@@ -30,8 +30,6 @@ func gather_patrol_locations(_node: Node = null) -> void:
 	patrol_locations = []
 	for c in get_children():
 		if c is PatrolLocation:
-			#if !Engine.is_editor_hint():
-				#c.visible = false
 			patrol_locations.append(c)
 	
 	if Engine.is_editor_hint() and patrol_locations.size() > 0:
