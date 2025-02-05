@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://wnm5xp6rqtlx"]
+[gd_scene load_steps=16 format=3 uid="uid://wnm5xp6rqtlx"]
 
 [ext_resource type="Script" path="res://GUI/dialog_system/scripts/dialog_system.gd" id="1_iehko"]
 [ext_resource type="Texture2D" uid="uid://cgb4xc6nifcpy" path="res://GUI/dialog_system/sprites/text-bubble.png" id="2_ntpga"]
@@ -6,6 +6,8 @@
 [ext_resource type="FontFile" uid="uid://qaf70rctq75y" path="res://GUI/fonts/Abaddon Bold.ttf" id="4_7bsob"]
 [ext_resource type="Texture2D" uid="uid://bvhwu7o7gutx8" path="res://npc/sprites/portraits/npc_portrait_01.png" id="5_1s1m7"]
 [ext_resource type="FontFile" uid="uid://r3l05ecw1xlq" path="res://GUI/fonts/m5x7.ttf" id="6_52uah"]
+[ext_resource type="AudioStream" uid="uid://0jfngb7i3mst" path="res://interactables/dialog/audio/voice_blip.wav" id="6_ay62q"]
+[ext_resource type="Script" path="res://interactables/dialog/scripts/dialog_portrait.gd" id="6_fobtw"]
 
 [sub_resource type="Gradient" id="Gradient_1myjm"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
@@ -144,10 +146,15 @@ text = "NAME"
 position = Vector2(51, 198)
 texture = ExtResource("5_1s1m7")
 hframes = 4
+script = ExtResource("6_fobtw")
 
 [node name="Timer" type="Timer" parent="DialogUI"]
+one_shot = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="DialogUI"]
+stream = ExtResource("6_ay62q")
+max_polyphony = 6
+bus = &"SFX"
 
 [node name="DialogProgressIndicator" type="PanelContainer" parent="DialogUI"]
 self_modulate = Color(0.254902, 0.662745, 0.313726, 1)
