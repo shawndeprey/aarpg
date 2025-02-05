@@ -88,7 +88,6 @@ position = Vector2(343, 139)
 npc_resource = ExtResource("10_k8vj0")
 
 [node name="NpcPatrolBehavior" parent="Npc2" instance=ExtResource("11_7o5jn")]
-walk_speed = 30.0
 
 [node name="PatrolLocation" parent="Npc2/NpcPatrolBehavior" instance=ExtResource("12_y6ba8")]
 modulate = Color(1, 0, 0, 1)
@@ -109,3 +108,11 @@ position = Vector2(19, -84)
 [node name="PatrolLocation5" parent="Npc2/NpcPatrolBehavior" instance=ExtResource("12_y6ba8")]
 modulate = Color(0, 0, 1, 1)
 position = Vector2(-29, -56)
+
+[node name="DialogInteraction" parent="Npc2" instance=ExtResource("10_hsxbq")]
+enabled = true
+
+[node name="DialogText" type="Node" parent="Npc2/DialogInteraction"]
+script = ExtResource("11_i3bl0")
+text = "Hi, how's hero?"
+npc_info = ExtResource("10_k8vj0")

@@ -46,8 +46,13 @@ func check_mouth_open(l: String) -> void:
 		audio.pitch_scale = randf_range(audio_pitch_base - 0.04, audio_pitch_base + 0.04)
 		audio.play()
 	elif ".,!?":
+		audio.pitch_scale = audio_pitch_base - 0.1
+		audio.play()
 		mouth_open_frames = 0
 	if mouth_open_frames > 0:
 		mouth_open_frames -= 1
 	if mouth_open_frames == 0:
-		open_mouth = false
+		if open_mouth:
+			open_mouth = false
+			audio.pitch_scale = randf_range(audio_pitch_base - 0.08, audio_pitch_base + 0.02)
+			audio.play()
