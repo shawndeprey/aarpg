@@ -24,6 +24,7 @@ func update_inventory(i: int = 0) -> void:
 		new_slot.slot_data = s
 		new_slot.focus_entered.connect(item_focused)
 	await get_tree().process_frame
+	await get_tree().process_frame
 	get_child(i).grab_focus()
 
 func on_inventory_changed() -> void:

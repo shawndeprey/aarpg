@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://drq8sefbyl37f"]
+[gd_scene load_steps=7 format=4 uid="uid://drq8sefbyl37f"]
 
 [ext_resource type="Script" path="res://Levels/Scripts/level.gd" id="1_auo1j"]
 [ext_resource type="PackedScene" uid="uid://cqkbam7xsllkw" path="res://Tile Maps/dungeon_01.tscn" id="2_7jvl0"]
@@ -6,8 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://d2ipprfu64xk0" path="res://Levels/player_spawn.tscn" id="3_3qb5u"]
 [ext_resource type="PackedScene" uid="uid://boo2hdty4mmwe" path="res://Levels/level_transition.tscn" id="4_jq0te"]
 [ext_resource type="PackedScene" uid="uid://l42n88oh8mqb" path="res://interactables/dungeon/locked_door.tscn" id="5_6rkqb"]
-[ext_resource type="PackedScene" uid="uid://c21ofh4i8gmqf" path="res://Items/item_pickup/item_pickup.tscn" id="7_6sl5r"]
-[ext_resource type="Resource" uid="uid://crgsaqeofb0pp" path="res://Items/key_dungeon.tres" id="8_5vfwd"]
 
 [node name="d_02" type="Node2D"]
 script = ExtResource("1_auo1j")
@@ -38,7 +36,3 @@ position = Vector2(256, -16)
 position = Vector2(256, 16)
 level = "res://Levels/dungeon_01/d_04.tscn"
 side = 2
-
-[node name="ItemPickup" parent="." instance=ExtResource("7_6sl5r")]
-position = Vector2(139, 59)
-item_data = ExtResource("8_5vfwd")

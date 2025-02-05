@@ -4,6 +4,7 @@ var music_audio_player_count: int = 2
 var current_music_player: int = 0
 var music_players: Array[AudioStreamPlayer] = []
 var music_bus: String = "Music"
+var is_playing_music: bool = false
 
 var music_fade_duration: float = 1.5
 
@@ -26,6 +27,7 @@ func play_music(_audio: AudioStream) -> void:
 	var old_player = music_players[1]
 	if current_music_player == 1: old_player = music_players[0]
 	fade_out_and_stop(old_player)
+	is_playing_music = true
 
 func play_and_fade_in(audio_player: AudioStreamPlayer) -> void:
 	audio_player.play(0)
@@ -33,7 +35,12 @@ func play_and_fade_in(audio_player: AudioStreamPlayer) -> void:
 	tween.tween_property(audio_player, "volume_db", 0, music_fade_duration)
 
 func fade_out_and_stop(audio_player: AudioStreamPlayer) -> void:
+	is_playing_music = false
 	var tween: Tween = create_tween()
 	tween.tween_property(audio_player, "volume_db", -40, music_fade_duration)
 	await tween.finished
 	audio_player.stop()
+	
+func stop_all_music() -> void:
+	if !is_playing_music: return
+	fade_out_and_stop(music_players[current_music_player])

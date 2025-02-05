@@ -1,8 +1,10 @@
 class_name LevelTileMap extends TileMapLayer
 
+@export var skip_ready: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	if skip_ready: return
 	LevelManager.change_tilemap_bounds(get_tilemap_bounds())
 
 func get_tilemap_bounds() -> Array[Vector2]:
