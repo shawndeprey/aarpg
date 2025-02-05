@@ -93,6 +93,8 @@ func set_dialog_choice(d: DialogChoice) -> void:
 		new_choice.alignment = HORIZONTAL_ALIGNMENT_LEFT
 		new_choice.pressed.connect(_dialog_choice_selected.bind(d.dialog_branches[i]))
 		choice_options.add_child(new_choice)
+	
+	if Engine.is_editor_hint(): return
 	await get_tree().process_frame
 	await get_tree().process_frame
 	choice_options.get_child(0).grab_focus()
@@ -104,6 +106,7 @@ func _dialog_choice_selected(d: DialogBranch) -> void:
 # DialogText Handlers
 func set_dialog_text(d: DialogText) -> void:
 	content.text = d.text
+	choice_options.visible = false
 	name_label.text = d.npc_info.npc_name
 	portrait_sprite.texture = d.npc_info.portrait
 	portrait_sprite.audio_pitch_base = d.npc_info.dialogue_audio_pitch

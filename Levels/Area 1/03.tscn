@@ -121,6 +121,7 @@ npc_info = ExtResource("10_k8vj0")
 
 [node name="DialogChoice" type="Node" parent="Npc2/DialogInteraction"]
 script = ExtResource("16_4aeui")
+npc_info = ExtResource("10_k8vj0")
 
 [node name="DialogBranch" type="Node" parent="Npc2/DialogInteraction/DialogChoice"]
 script = ExtResource("17_kchcd")
