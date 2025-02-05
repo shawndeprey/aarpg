@@ -25,16 +25,23 @@ enum SIDE {LEFT, RIGHT, TOP, BOTTOM}
 
 func _ready() -> void:
 	_update_area()
-	if Engine.is_editor_hint(): return
+	if Engine.is_editor_hint():return
 	monitoring = false
 	_place_player()
 	await LevelManager.level_loaded
+	
+	# Some extra physics frame awaits will avoid issues related to frame rate
+	# & physics process frame rate not syncing up... we had a bug where no matter
+	# what we did the collision would still sometimes happen at the players
+	# OLD position after loading on PC's running the game at 120 or 144fps
+	await get_tree().physics_frame
+	await get_tree().physics_frame
+	
 	monitoring = true
-	body_entered.connect(_player_entered)
+	body_entered.connect( _player_entered )
 
 func _player_entered(_p: Node2D) -> void:
 	LevelManager.load_new_level(level, target_transition_area, get_offset())
-	pass
 
 func _place_player() -> void:
 	if name != LevelManager.target_transition: return
