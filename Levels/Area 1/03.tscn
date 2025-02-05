@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://c105cledukim2"]
+[gd_scene load_steps=18 format=4 uid="uid://c105cledukim2"]
 
 [ext_resource type="Script" path="res://Levels/Scripts/level.gd" id="1_kbb55"]
 [ext_resource type="AudioStream" uid="uid://c4cghr2amj0nr" path="res://Levels/music/example_music_01.ogg" id="2_p2b06"]
@@ -15,6 +15,8 @@
 [ext_resource type="Script" path="res://interactables/dialog/scripts/dialog_text.gd" id="11_i3bl0"]
 [ext_resource type="Resource" uid="uid://dp3xvapehejb8" path="res://npc/00_npc/npc_hero.tres" id="12_5po8f"]
 [ext_resource type="PackedScene" uid="uid://cgqxs8s73xa3d" path="res://npc/patrol_location.tscn" id="12_y6ba8"]
+[ext_resource type="Script" path="res://interactables/dialog/scripts/dialog_choice.gd" id="16_4aeui"]
+[ext_resource type="Script" path="res://interactables/dialog/scripts/dialog_branch.gd" id="17_kchcd"]
 
 [node name="02" type="Node2D"]
 script = ExtResource("1_kbb55")
@@ -114,5 +116,33 @@ enabled = true
 
 [node name="DialogText" type="Node" parent="Npc2/DialogInteraction"]
 script = ExtResource("11_i3bl0")
-text = "Hi, how's hero?"
+text = "Yo, Hero, will you help retrieve my magical flute from the dark dungeon?"
+npc_info = ExtResource("10_k8vj0")
+
+[node name="DialogChoice" type="Node" parent="Npc2/DialogInteraction"]
+script = ExtResource("16_4aeui")
+
+[node name="DialogBranch" type="Node" parent="Npc2/DialogInteraction/DialogChoice"]
+script = ExtResource("17_kchcd")
+text = "Count on it!"
+npc_info = ExtResource("10_k8vj0")
+
+[node name="DialogText" type="Node" parent="Npc2/DialogInteraction/DialogChoice/DialogBranch"]
+script = ExtResource("11_i3bl0")
+text = "Thank you dear Hero!"
+npc_info = ExtResource("10_k8vj0")
+
+[node name="DialogText2" type="Node" parent="Npc2/DialogInteraction/DialogChoice/DialogBranch"]
+script = ExtResource("11_i3bl0")
+text = "Oh, and be careful of the [shake]Evil Wizard[/shake] who lurks in the dungeon!"
+npc_info = ExtResource("10_k8vj0")
+
+[node name="DialogBranch2" type="Node" parent="Npc2/DialogInteraction/DialogChoice"]
+script = ExtResource("17_kchcd")
+text = "No way! Are you crazy!?"
+npc_info = ExtResource("10_k8vj0")
+
+[node name="DialogText" type="Node" parent="Npc2/DialogInteraction/DialogChoice/DialogBranch2"]
+script = ExtResource("11_i3bl0")
+text = "Geeze, some lousy hero you are!"
 npc_info = ExtResource("10_k8vj0")
