@@ -3,7 +3,9 @@ const PLAYER = preload("res://Player/player.tscn")
 const INVENTORY_DATA: InventoryData = preload("res://GUI/pause_menu/inventory/player_inventory.tres")
 
 signal interact_pressed
+signal handled_interaction
 
+var interact_handled: bool = true
 var player: Player
 var player_spawned: bool = false
 
@@ -35,3 +37,11 @@ func unparent_player(_p: Node2D) -> void:
 func play_audio(_audio: AudioStream) -> void:
 	player.audio.stream = _audio
 	player.audio.play()
+
+func interact() -> void:
+	interact_handled = false
+	interact_pressed.emit()
+
+func handle_interaction() -> void:
+	interact_handled = true
+	handled_interaction.emit()

@@ -8,6 +8,9 @@ signal PlayerDamaged(hurtbox: HurtBox)
 @onready var state_machine: PlayerStateMachine = $StateMachine
 @onready var hit_box: HitBox = $HitBox
 @onready var audio: AudioStreamPlayer2D = $Audio/AudioStreamPlayer2D
+@onready var lift: StateLift = $StateMachine/Lift
+@onready var carry: StateCarry = $StateMachine/Carry
+@onready var held_item: Node2D = $Sprite2D/HeldItem
 
 var cardinal_direction: Vector2 = Vector2.DOWN
 const DIR_4: Array = [Vector2.RIGHT, Vector2.DOWN, Vector2.LEFT, Vector2.UP]
@@ -66,3 +69,8 @@ func MakeInvulnerable(_duration: float = 1.0) -> void:
 	await get_tree().create_timer(_duration).timeout
 	invulnerable = false
 	hit_box.monitoring = true
+
+func pickup_item(t: Throwable) -> void:
+	state_machine.ChangeState(lift)
+	carry.throwable = t
+	# Store throwable object
