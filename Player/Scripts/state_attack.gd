@@ -5,6 +5,7 @@ var attacking: bool = false
 @export_range(1, 20, 0.5) var decelerate_speed: float = 5.0
 @onready var walk: State = $"../Walk"
 @onready var idle: StateIdle = $"../Idle"
+@onready var charge_attack: StateChargeAttack = $"../Charge Attack"
 @onready var animation_player: AnimationPlayer = $"../../AnimationPlayer"
 @onready var attack_anim: AnimationPlayer = $"../../Sprite2D/AttackEffectSprite/AnimationPlayer"
 @onready var audio: AudioStreamPlayer2D = $"../../Audio/AudioStreamPlayer2D"
@@ -54,4 +55,7 @@ func HandleInput(_event: InputEvent) -> State:
 	return null
 
 func EndAttack(_newAnimName: String) -> void:
-	attacking = false
+	if Input.is_action_pressed("attack"):
+		state_machine.ChangeState(charge_attack)
+	else:
+		attacking = false
