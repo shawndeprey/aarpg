@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=4 uid="uid://cn6miw8773nwb"]
+[gd_scene load_steps=8 format=4 uid="uid://cn6miw8773nwb"]
 
 [ext_resource type="Script" path="res://Levels/Scripts/level.gd" id="1_ysnhd"]
 [ext_resource type="PackedScene" uid="uid://cqkbam7xsllkw" path="res://Tile Maps/dungeon_01.tscn" id="2_i4h0y"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://d2ipprfu64xk0" path="res://Levels/player_spawn.tscn" id="3_sl4dc"]
 [ext_resource type="PackedScene" uid="uid://boo2hdty4mmwe" path="res://Levels/level_transition.tscn" id="4_d104x"]
 [ext_resource type="PackedScene" uid="uid://bsg3vnt3ap4wj" path="res://Props/torches/torch_dungeon.tscn" id="6_n1gmy"]
+[ext_resource type="PackedScene" uid="uid://drbagerhf28ro" path="res://Levels/dungeon_01/dark_wizard/energy_orb.tscn" id="7_78yo5"]
 
 [node name="d_04" type="Node2D"]
 script = ExtResource("1_ysnhd")
@@ -40,3 +41,15 @@ position = Vector2(401, 38)
 
 [node name="TorchDungeon4" parent="." instance=ExtResource("6_n1gmy")]
 position = Vector2(401, 215)
+
+[node name="EnergyOrb" parent="." instance=ExtResource("7_78yo5")]
+position = Vector2(401, 12)
+
+[node name="EnergyOrb2" parent="." instance=ExtResource("7_78yo5")]
+position = Vector2(112, 13)
+
+[node name="EnergyOrb3" parent="." instance=ExtResource("7_78yo5")]
+position = Vector2(110, 192)
+
+[node name="EnergyOrb4" parent="." instance=ExtResource("7_78yo5")]
+position = Vector2(403, 194)
