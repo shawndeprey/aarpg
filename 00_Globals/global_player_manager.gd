@@ -4,6 +4,7 @@ const INVENTORY_DATA: InventoryData = preload("res://GUI/pause_menu/inventory/pl
 
 signal interact_pressed
 signal handled_interaction
+signal camera_shook(trauma: float)
 
 var interact_handled: bool = true
 var player: Player
@@ -45,3 +46,6 @@ func interact() -> void:
 func handle_interaction() -> void:
 	interact_handled = true
 	handled_interaction.emit()
+
+func shake_camera(trauma: float = 1) -> void:
+	camera_shook.emit(trauma)

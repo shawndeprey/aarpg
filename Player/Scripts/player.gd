@@ -32,9 +32,9 @@ func _physics_process(_delta: float) -> void:
 	move_and_slide() # This function already handles frame-rate independent movement, thus, we do not need to multiply our values by delta.
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("test"):
-		update_hp(-99)
-		PlayerDamaged.emit(%AttackHurtBox)
+	#if event.is_action_pressed("test"):
+		#PlayerManager.shake_camera()
+	pass
 
 func SetDirection() -> bool:
 	if direction == Vector2.ZERO: return false

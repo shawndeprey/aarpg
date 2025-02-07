@@ -28,6 +28,7 @@ func Enter() -> void:
 	player.UpdateAnimation("stun")
 	player.MakeInvulnerable(invulnerable_duration)
 	player.effect_animation_player.play("damaged")
+	PlayerManager.shake_camera()
 
 # What happens when the player exits this state?
 func Exit() -> void:
