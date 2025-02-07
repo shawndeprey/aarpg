@@ -15,7 +15,10 @@ func fade_out() -> bool:
 func fade_in() -> bool:
 	PauseMenu.ignore_input = true
 	animation_player.play("fade_in")
-	await animation_player.animation_finished
+	animation_player.animation_finished.connect(_on_animation_finished)
+	return true
+
+func _on_animation_finished() -> void:
+	animation_player.animation_finished.disconnect(_on_animation_finished)
 	PauseMenu.ignore_input = false
 	visible = false
-	return true

@@ -31,6 +31,11 @@ func _process(_delta: float) -> void:
 func _physics_process(_delta: float) -> void:
 	move_and_slide() # This function already handles frame-rate independent movement, thus, we do not need to multiply our values by delta.
 
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("test"):
+		update_hp(-99)
+		PlayerDamaged.emit(%AttackHurtBox)
+
 func SetDirection() -> bool:
 	if direction == Vector2.ZERO: return false
 	var direction_id: int = int(round((direction + cardinal_direction * 0.1).angle() / TAU * DIR_4.size()))
@@ -55,9 +60,9 @@ func AnimDireciton() -> String:
 
 func TakeDamage(hurtbox: HurtBox) -> void:
 	if invulnerable: return
-	update_hp(-hurtbox.damage)
-	PlayerDamaged.emit(hurtbox)
-	if hp <= 0: update_hp(99)
+	if hp > 0:
+		update_hp(-hurtbox.damage)
+		PlayerDamaged.emit(hurtbox)
 
 func update_hp(change: int) -> void:
 	hp = clampi(hp + change, 0, max_hp)
@@ -73,4 +78,10 @@ func MakeInvulnerable(_duration: float = 1.0) -> void:
 func pickup_item(t: Throwable) -> void:
 	state_machine.ChangeState(lift)
 	carry.throwable = t
-	# Store throwable object
+
+func revive_player() -> void:
+	update_hp(99)
+	state_machine.ChangeState($StateMachine/Idle)
+
+func is_dead() -> bool:
+	return hp <= 0

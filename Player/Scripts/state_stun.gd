@@ -4,12 +4,12 @@ class_name StateStun extends State
 @export var decelerate_speed: float = 10.0
 @export var invulnerable_duration: float = 1.0
 
-@onready var idle: State = $"../Idle"
-
 var hurtbox: HurtBox
 var direction: Vector2
-
 var next_state: State = null
+
+@onready var idle: State = $"../Idle"
+@onready var death: StateDeath = $"../Death"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -49,7 +49,11 @@ func HandleInput(_event: InputEvent) -> State:
 
 func PlayerDamaged(_hurtbox: HurtBox) -> void:
 	hurtbox = _hurtbox
-	state_machine.ChangeState(self)
+	if state_machine.current_state != death:
+		state_machine.ChangeState(self)
 
 func AnimationFinished(_a: String) -> void:
-	next_state = idle
+	if player.hp <= 0:
+		next_state = death
+	else:
+		next_state = idle

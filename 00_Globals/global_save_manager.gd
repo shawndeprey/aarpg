@@ -27,6 +27,9 @@ func save_game() -> void:
 	file.store_line(save_json)
 	game_saved.emit()
 
+func has_save() -> bool:
+	return get_save_file() != null
+
 func get_save_file() -> FileAccess:
 	return FileAccess.open(SAVE_PATH + "save.sav", FileAccess.READ)
 

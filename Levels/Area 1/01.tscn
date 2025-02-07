@@ -36,7 +36,7 @@ position = Vector2(417, 231)
 [node name="Slime2" parent="." instance=ExtResource("10_twk46")]
 position = Vector2(426, 48)
 
-[node name="Slime3" parent="." instance=ExtResource("6_qik73")]
+[node name="Goblin" parent="." instance=ExtResource("6_qik73")]
 position = Vector2(47, 120)
 
 [node name="Pot" parent="." instance=ExtResource("8_o1aca")]
