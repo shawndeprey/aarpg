@@ -19,7 +19,7 @@ func _ready() -> void:
 	gather_interactables()
 	do_behavior_enabled.emit()
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	move_and_slide()
 
 func update_animation() -> void:

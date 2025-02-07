@@ -31,7 +31,7 @@ func _process(_delta: float) -> void:
 func _physics_process(_delta: float) -> void:
 	move_and_slide() # This function already handles frame-rate independent movement, thus, we do not need to multiply our values by delta.
 
-func _unhandled_input(event: InputEvent) -> void:
+func _unhandled_input(_event: InputEvent) -> void:
 	#if event.is_action_pressed("test"):
 		#PlayerManager.shake_camera()
 	pass

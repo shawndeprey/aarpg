@@ -4,7 +4,7 @@ class_name DialogItem extends Node
 
 @export var npc_info: NPCResource
 
-var editor_selection
+var editor_selection # : EditorSelection // Remove to avoid runtime bug
 var example_dialog: DialogSystemNode
 
 func _ready() -> void:

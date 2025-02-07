@@ -31,7 +31,7 @@ func Exit() -> void:
 			throwable.throw()
 
 # What happens during the _process update in this State?
-func Process(delta: float) -> State:
+func Process(_delta: float) -> State:
 	if player.direction == Vector2.ZERO:
 		walking = false
 		player.UpdateAnimation("carry")
