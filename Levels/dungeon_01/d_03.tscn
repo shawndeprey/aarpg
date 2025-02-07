@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://cskpmp0xnc8ry"]
+[gd_scene load_steps=11 format=4 uid="uid://cskpmp0xnc8ry"]
 
 [ext_resource type="Script" path="res://Levels/Scripts/level.gd" id="1_wxbhx"]
 [ext_resource type="PackedScene" uid="uid://cqkbam7xsllkw" path="res://Tile Maps/dungeon_01.tscn" id="2_jawhq"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://c0pyn5wtg67op" path="res://Enemies/Slime/slime.tscn" id="6_df02p"]
 [ext_resource type="PackedScene" uid="uid://bnvcdygaiydgd" path="res://GeneralNodes/item_dropper/item_dropper.tscn" id="7_uomuk"]
 [ext_resource type="Resource" uid="uid://crgsaqeofb0pp" path="res://Items/key_dungeon.tres" id="8_7lcyy"]
+[ext_resource type="PackedScene" uid="uid://bsg3vnt3ap4wj" path="res://Props/torches/torch_dungeon.tscn" id="10_6golp"]
 
 [node name="d_03" type="Node2D"]
 script = ExtResource("1_wxbhx")
@@ -38,5 +39,22 @@ position = Vector2(93, 115)
 [node name="ItemDropper" parent="." instance=ExtResource("7_uomuk")]
 position = Vector2(432, 128)
 item_data = ExtResource("8_7lcyy")
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+color = Color(0.184902, 0.214922, 0.18614, 1)
+energy = 0.8
+blend_mode = 2
+
+[node name="TorchDungeon" parent="." instance=ExtResource("10_6golp")]
+position = Vector2(160, 215)
+
+[node name="TorchDungeon2" parent="." instance=ExtResource("10_6golp")]
+position = Vector2(160, 36)
+
+[node name="TorchDungeon3" parent="." instance=ExtResource("10_6golp")]
+position = Vector2(352, 38)
+
+[node name="TorchDungeon4" parent="." instance=ExtResource("10_6golp")]
+position = Vector2(355, 215)
 
 [connection signal="enemies_defeated" from="EnemyCounter" to="ItemDropper" method="drop_item"]

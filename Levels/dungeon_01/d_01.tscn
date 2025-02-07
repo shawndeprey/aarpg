@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://dolfdbda3ik4a"]
+[gd_scene load_steps=10 format=4 uid="uid://dolfdbda3ik4a"]
 
 [ext_resource type="Script" path="res://Levels/Scripts/level.gd" id="1_liiy8"]
 [ext_resource type="AudioStream" uid="uid://d3q2qqfykd5kh" path="res://Levels/music/example_music_03.ogg" id="2_xkan5"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://du45p8lp106kn" path="res://interactables/dungeon/pressure_plate.tscn" id="5_b1ti2"]
 [ext_resource type="PackedScene" uid="uid://b0824m3ik3kjg" path="res://interactables/dungeon/barred_door.tscn" id="6_14gw7"]
 [ext_resource type="PackedScene" uid="uid://cf1hwt7wruit6" path="res://interactables/dungeon/pushable_statue.tscn" id="7_hh1xm"]
+[ext_resource type="PackedScene" uid="uid://bsg3vnt3ap4wj" path="res://Props/torches/torch_dungeon.tscn" id="9_jr1ew"]
 
 [node name="d_01" type="Node2D"]
 script = ExtResource("1_liiy8")
@@ -41,6 +42,23 @@ position = Vector2(335, 165)
 position = Vector2(256, 81)
 level = "res://Levels/dungeon_01/d_02.tscn"
 side = 2
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+color = Color(0.184902, 0.214922, 0.18614, 1)
+energy = 0.8
+blend_mode = 2
+
+[node name="TorchDungeon" parent="." instance=ExtResource("9_jr1ew")]
+position = Vector2(160, 217)
+
+[node name="TorchDungeon2" parent="." instance=ExtResource("9_jr1ew")]
+position = Vector2(160, 102)
+
+[node name="TorchDungeon3" parent="." instance=ExtResource("9_jr1ew")]
+position = Vector2(352, 102)
+
+[node name="TorchDungeon4" parent="." instance=ExtResource("9_jr1ew")]
+position = Vector2(352, 217)
 
 [connection signal="activated" from="PressurePlate" to="BarredDoor" method="open_door"]
 [connection signal="deactivated" from="PressurePlate" to="BarredDoor" method="close_door"]
