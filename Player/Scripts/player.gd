@@ -81,21 +81,10 @@ func pickup_item(t: Throwable) -> void:
 
 func lower_item() -> void:
 	for c in held_item.get_children():
-		if c != Sprite2D:
-			held_item.remove_child(c)
-			PlayerManager.player.get_parent().call_deferred("add_child", c)
-			c.position = PlayerManager.player.position
-			var offset = 20
-			if cardinal_direction == Vector2.DOWN: c.position.y += offset
-			elif cardinal_direction == Vector2.UP: c.position.y -= offset
-			elif cardinal_direction == Vector2.LEFT: c.position.x -= offset
-			elif cardinal_direction == Vector2.RIGHT: c.position.x += offset
-			enable_lowered_throwable(c)
-
-func enable_lowered_throwable(node: Node) -> void:
-	for c in node.get_children():
-		if c.name == "Throwable":
-			c.enable_throwable()
+		held_item.remove_child(c)
+		get_parent().call_deferred("add_child", c)
+		for d in c.get_children():
+			if d.name == "Throwable": d.enable_throwable()
 
 func revive_player() -> void:
 	update_hp(99)

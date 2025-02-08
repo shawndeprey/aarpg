@@ -4,8 +4,6 @@ class_name StateLower extends State
 
 @onready var idle: StateIdle = $"../Idle"
 
-var throwable: Throwable
-
 func Enter() -> void:
 	player.UpdateAnimation("lower")
 	player.animation_player.animation_finished.connect(state_complete)
