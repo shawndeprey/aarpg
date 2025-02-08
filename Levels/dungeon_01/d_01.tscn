@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://dolfdbda3ik4a"]
+[gd_scene load_steps=11 format=4 uid="uid://dolfdbda3ik4a"]
 
 [ext_resource type="Script" path="res://Levels/Scripts/level.gd" id="1_liiy8"]
 [ext_resource type="AudioStream" uid="uid://d3q2qqfykd5kh" path="res://Levels/music/example_music_03.ogg" id="2_xkan5"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://b0824m3ik3kjg" path="res://interactables/dungeon/barred_door.tscn" id="6_14gw7"]
 [ext_resource type="PackedScene" uid="uid://cf1hwt7wruit6" path="res://interactables/dungeon/pushable_statue.tscn" id="7_hh1xm"]
 [ext_resource type="PackedScene" uid="uid://bsg3vnt3ap4wj" path="res://Props/torches/torch_dungeon.tscn" id="9_jr1ew"]
+[ext_resource type="PackedScene" uid="uid://dmklnug1go5j1" path="res://Props/pot/pot.tscn" id="10_xg0c6"]
 
 [node name="d_01" type="Node2D"]
 script = ExtResource("1_liiy8")
@@ -59,6 +60,12 @@ position = Vector2(352, 102)
 
 [node name="TorchDungeon4" parent="." instance=ExtResource("9_jr1ew")]
 position = Vector2(352, 217)
+
+[node name="Pot" parent="." instance=ExtResource("10_xg0c6")]
+position = Vector2(226, 223)
+
+[node name="Pot2" parent="." instance=ExtResource("10_xg0c6")]
+position = Vector2(289, 222)
 
 [connection signal="activated" from="PressurePlate" to="BarredDoor" method="open_door"]
 [connection signal="deactivated" from="PressurePlate" to="BarredDoor" method="close_door"]

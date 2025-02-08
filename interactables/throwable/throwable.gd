@@ -8,6 +8,7 @@ class_name Throwable extends Area2D
 var picked_up: bool = false
 var throwable: Node2D
 var throw_direction: Vector2
+var collidable: Collidable2D
 
 var object_sprite: Sprite2D
 var vertical_velocity: float = 0
@@ -17,10 +18,11 @@ var animation_player: AnimationPlayer
 @onready var hurt_box: HurtBox = $HurtBox
 
 func _ready() -> void:
+	throwable = get_parent()
 	area_entered.connect(_on_area_enter)
 	area_exited.connect(_on_area_exit)
-	throwable = get_parent()
 	setup_hurtbox()
+	get_collidable(throwable)
 	object_sprite = throwable.find_child("Sprite2D")
 	ground_height = object_sprite.position.y
 	animation_player = throwable.find_child("AnimationPlayer")
@@ -42,16 +44,17 @@ func _on_area_exit(_a: Area2D) -> void:
 func setup_hurtbox() -> void:
 	hurt_box.monitoring = false
 	for c in get_children():
-		if c is CollisionShape2D:
-			var col: CollisionShape2D = c.duplicate()
+		if c is Collidable2D:
+			var col: Collidable2D = c.duplicate()
 			hurt_box.add_child(col)
 			col.debug_color = Color(1, 0, 0, 0.3)
 
 func player_interact() -> void:
 	if PlayerManager.interact_handled: return
 	if !picked_up:
+		picked_up = true
 		PlayerManager.handle_interaction()
-		disable_collisions(throwable)
+		collidable.set_deferred("disabled", true)
 		if throwable.get_parent():
 			throwable.get_parent().remove_child(throwable)
 		PlayerManager.player.held_item.add_child(throwable)
@@ -89,10 +92,23 @@ func destroy() -> void:
 		await animation_player.animation_finished
 	throwable.queue_free()
 
-func disable_collisions(node: Node) -> void:
+func enable_throwable() -> void:
+	area_entered.connect(_on_area_enter)
+	area_exited.connect(_on_area_exit)
+	picked_up = false
+	throwable.position = PlayerManager.player.position
+	var size = collidable.get_collision_size()
+	if PlayerManager.player.cardinal_direction == Vector2.DOWN: throwable.position.y += size.y
+	elif PlayerManager.player.cardinal_direction == Vector2.UP: throwable.position.y -= size.y
+	elif PlayerManager.player.cardinal_direction == Vector2.LEFT: throwable.position.x -= size.x
+	elif PlayerManager.player.cardinal_direction == Vector2.RIGHT: throwable.position.x += size.x
+	collidable.set_deferred("disabled", false)
+
+func get_collidable(node: Node) -> void:
 	for c in node.get_children():
 		if c == self: continue
-		if c is CollisionShape2D:
-			c.disabled = true
+		if c is Collidable2D:
+			collidable = c
+			break
 		else:
-			disable_collisions(c)
+			get_collidable(c)

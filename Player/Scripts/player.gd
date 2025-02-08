@@ -79,6 +79,13 @@ func pickup_item(t: Throwable) -> void:
 	state_machine.ChangeState(lift)
 	carry.throwable = t
 
+func lower_item() -> void:
+	for c in held_item.get_children():
+		held_item.remove_child(c)
+		get_parent().call_deferred("add_child", c)
+		for d in c.get_children():
+			if d.name == "Throwable": d.enable_throwable()
+
 func revive_player() -> void:
 	update_hp(99)
 	state_machine.ChangeState($StateMachine/Idle)
