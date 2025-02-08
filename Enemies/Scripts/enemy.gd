@@ -21,7 +21,7 @@ var invulderable: bool = false
 func _ready() -> void:
 	state_machine.Initialize(self)
 	player = PlayerManager.player
-	hitbox.Damaged.connect(TakeDamage)
+	hitbox.damaged.connect(TakeDamage)
 	pass # Replace with function body.
 
 

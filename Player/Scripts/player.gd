@@ -22,7 +22,7 @@ var max_hp: int = 6
 func _ready() -> void:
 	PlayerManager.player = self
 	state_machine.Initialize(self)
-	hit_box.Damaged.connect(TakeDamage)
+	hit_box.damaged.connect(TakeDamage)
 	update_hp(99)
 
 func _process(_delta: float) -> void:
