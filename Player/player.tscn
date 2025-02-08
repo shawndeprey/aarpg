@@ -1,4 +1,4 @@
-[gd_scene load_steps=85 format=3 uid="uid://b0oq4q0m4jmwg"]
+[gd_scene load_steps=89 format=3 uid="uid://b0oq4q0m4jmwg"]
 
 [ext_resource type="Script" path="res://Player/Scripts/player.gd" id="1_ettd6"]
 [ext_resource type="Texture2D" uid="uid://cmeg2vhxmbn0c" path="res://Player/Sprites/player_sprite.png" id="2_lnhu0"]
@@ -29,6 +29,7 @@
 [ext_resource type="AudioStream" uid="uid://bcbwyt67320jk" path="res://Player/Audio/throw.wav" id="20_57a3e"]
 [ext_resource type="Script" path="res://Player/Scripts/state_death.gd" id="21_win64"]
 [ext_resource type="AudioStream" uid="uid://np686ytxo27t" path="res://Player/Audio/exhausted.wav" id="22_f8ie1"]
+[ext_resource type="Script" path="res://Player/Scripts/state_lower.gd" id="23_oip4l"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xrgyj"]
 
@@ -1420,6 +1421,126 @@ tracks/0/keys = {
 "values": [13, 16]
 }
 
+[sub_resource type="Animation" id="Animation_ktn0r"]
+resource_name = "lower_up"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.233333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [38, 37, 36]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D/HeldItem:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.233333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector2(0, -18), Vector2(0, 17), Vector2(0, 9)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D/HeldItem:show_behind_parent")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_1dc5t"]
+resource_name = "lower_side"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.233333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [41, 40, 39]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D/HeldItem:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.233333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector2(0, -18), Vector2(16, 9), Vector2(16, 17)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D/HeldItem:show_behind_parent")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_605g5"]
+resource_name = "lower_down"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.233333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [35, 34, 33]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D/HeldItem:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.233333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector2(0, -18), Vector2(0, 9), Vector2(0, 19)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D/HeldItem:show_behind_parent")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_155ft"]
 _data = {
 "RESET": SubResource("Animation_l8jvb"),
@@ -1446,6 +1567,9 @@ _data = {
 "lift_down": SubResource("Animation_hyug8"),
 "lift_side": SubResource("Animation_6fber"),
 "lift_up": SubResource("Animation_rtdfx"),
+"lower_down": SubResource("Animation_605g5"),
+"lower_side": SubResource("Animation_1dc5t"),
+"lower_up": SubResource("Animation_ktn0r"),
 "stun_down": SubResource("Animation_tsvj1"),
 "stun_side": SubResource("Animation_k3m2n"),
 "stun_up": SubResource("Animation_812hh"),
@@ -1665,6 +1789,9 @@ throw_audio = ExtResource("20_57a3e")
 [node name="Death" type="Node" parent="StateMachine"]
 script = ExtResource("21_win64")
 exhaust_audio = ExtResource("22_f8ie1")
+
+[node name="Lower" type="Node" parent="StateMachine"]
+script = ExtResource("23_oip4l")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 editor_draw_limits = true

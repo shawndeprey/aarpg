@@ -8,6 +8,7 @@ var throwable: Throwable
 
 @onready var idle: StateIdle = $"../Idle"
 @onready var stun: StateStun = $"../Stun"
+@onready var lower: StateLower = $"../Lower"
 
 # What happens when the player inits this state?
 func Init() -> void:
@@ -25,7 +26,7 @@ func Exit() -> void:
 		if state_machine.next_state == stun:
 			throwable.throw_direction = throwable.throw_direction.rotated(PI)
 			throwable.drop()
-		else:
+		elif state_machine.next_state == idle:
 			player.audio.stream = throw_audio
 			player.audio.play()
 			throwable.throw()
@@ -47,6 +48,8 @@ func Physics(_delta: float) -> State:
 
 # What happens with input events in this State?
 func HandleInput(_event: InputEvent) -> State:
-	if _event.is_action_pressed("attack") or _event.is_action_pressed("interact"):
+	if _event.is_action_pressed("attack"):
 		return idle
+	elif _event.is_action_pressed("interact"):
+		return lower
 	return null

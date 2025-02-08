@@ -17,9 +17,8 @@ var animation_player: AnimationPlayer
 @onready var hurt_box: HurtBox = $HurtBox
 
 func _ready() -> void:
-	area_entered.connect(_on_area_enter)
-	area_exited.connect(_on_area_exit)
 	throwable = get_parent()
+	enable_throwable()
 	setup_hurtbox()
 	object_sprite = throwable.find_child("Sprite2D")
 	ground_height = object_sprite.position.y
@@ -96,3 +95,17 @@ func disable_collisions(node: Node) -> void:
 			c.disabled = true
 		else:
 			disable_collisions(c)
+
+func enable_throwable() -> void:
+	area_entered.connect(_on_area_enter)
+	area_exited.connect(_on_area_exit)
+	picked_up = false
+	enable_collisions(throwable)
+
+func enable_collisions(node: Node) -> void:
+	for c in node.get_children():
+		if c == Throwable: continue
+		if c is CollisionShape2D:
+			c.disabled = false
+		else:
+			enable_collisions(c)
