@@ -104,7 +104,7 @@ func enable_throwable() -> void:
 
 func enable_collisions(node: Node) -> void:
 	for c in node.get_children():
-		if c == Throwable: continue
+		if c == self: continue
 		if c is CollisionShape2D:
 			c.disabled = false
 		else:

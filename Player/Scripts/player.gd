@@ -85,7 +85,7 @@ func lower_item() -> void:
 			held_item.remove_child(c)
 			PlayerManager.player.get_parent().call_deferred("add_child", c)
 			c.position = PlayerManager.player.position
-			var offset = 18
+			var offset = 20
 			if cardinal_direction == Vector2.DOWN: c.position.y += offset
 			elif cardinal_direction == Vector2.UP: c.position.y -= offset
 			elif cardinal_direction == Vector2.LEFT: c.position.x -= offset
