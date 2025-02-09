@@ -634,6 +634,21 @@ _data = {
 "idle": SubResource("Animation_ocqwh")
 }
 
+[sub_resource type="Animation" id="Animation_7gx2i"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CloakSprite:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_w5khg"]
 resource_name = "damaged"
 step = 0.05
@@ -652,21 +667,6 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_i3ai3"]
 resource_name = "default"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CloakSprite:self_modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_7gx2i"]
-length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -741,7 +741,6 @@ position = Vector2(401, 215)
 [node name="DarkWizardBoss" type="Node2D" parent="."]
 y_sort_enabled = true
 script = ExtResource("7_abjhh")
-max_hp = 3
 
 [node name="PersistentDataHandler" parent="DarkWizardBoss" instance=ExtResource("7_rkqbr")]
 

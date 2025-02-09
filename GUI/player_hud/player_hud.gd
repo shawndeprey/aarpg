@@ -11,6 +11,10 @@ var hearts: Array[HeartGui] = []
 @onready var animation_player: AnimationPlayer = $Control/GameOver/AnimationPlayer
 @onready var audio: AudioStreamPlayer = $AudioStreamPlayer
 
+@onready var boss_ui: Control = $Control/BossUI
+@onready var boss_hp_bar: TextureProgressBar = $Control/BossUI/TextureProgressBar
+@onready var boss_label: Label = $Control/BossUI/BossName
+
 
 func _ready() -> void:
 	for child in $Control/Sprite2D/HFlowContainer.get_children():
@@ -23,6 +27,7 @@ func _ready() -> void:
 	title_button.focus_entered.connect(play_audio.bind(button_focus_audio))
 	title_button.pressed.connect(title_screen)
 	LevelManager.level_load_started.connect(hide_game_over_screen)
+	hide_boss_health()
 
 func update_hp(_hp: int, _max_hp: int) -> void:
 	update_max_hp(_max_hp)
@@ -79,3 +84,14 @@ func title_screen() -> void:
 	play_audio(button_select_audio)
 	await fade_to_black()
 	LevelManager.load_new_level("res://title_scene/title_screen.tscn", "", Vector2.ZERO)
+
+func hide_boss_health() -> void:
+	boss_ui.visible = false
+
+func show_boss_health(name: String) -> void:
+	boss_ui.visible = true
+	boss_label.text = name
+	update_boss_health(1, 1)
+
+func update_boss_health(hp: int, max_hp: int) -> void:
+	boss_hp_bar.value = clampf(float(hp) / float(max_hp) * 100, 0, 100)
