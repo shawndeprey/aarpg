@@ -44,8 +44,8 @@ func _on_area_exit(_a: Area2D) -> void:
 func setup_hurtbox() -> void:
 	hurt_box.monitoring = false
 	for c in get_children():
-		if c is Collidable2D:
-			var col: Collidable2D = c.duplicate()
+		if c is CollisionShape2D:
+			var col: CollisionShape2D = c.duplicate()
 			hurt_box.add_child(col)
 			col.debug_color = Color(1, 0, 0, 0.3)
 

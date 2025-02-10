@@ -133,7 +133,7 @@ libraries = {
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 collision_layer = 16
-collision_mask = 0
+collision_mask = 16
 
 [node name="Collidable2D" type="CollisionShape2D" parent="CharacterBody2D"]
 shape = SubResource("RectangleShape2D_qy618")
