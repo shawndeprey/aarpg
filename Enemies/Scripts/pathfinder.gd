@@ -52,7 +52,6 @@ func set_path() -> void:
 	for i in 8:
 		if rays[i].is_colliding():
 			obstacles[i] += 4
-			var next
 			obstacles[get_next_i(i)] += 1
 			obstacles[get_prev_i(i)] += 1
 

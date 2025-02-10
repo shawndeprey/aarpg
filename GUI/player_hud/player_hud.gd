@@ -88,9 +88,9 @@ func title_screen() -> void:
 func hide_boss_health() -> void:
 	boss_ui.visible = false
 
-func show_boss_health(name: String) -> void:
+func show_boss_health(_name: String) -> void:
 	boss_ui.visible = true
-	boss_label.text = name
+	boss_label.text = _name
 	update_boss_health(1, 1)
 
 func update_boss_health(hp: int, max_hp: int) -> void:
