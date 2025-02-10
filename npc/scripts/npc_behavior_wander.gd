@@ -38,7 +38,6 @@ func start() -> void:
 		for d in DIRECTIONS:
 			best_directions.append( d.dot( dir_to_area ) )
 		_dir = DIRECTIONS[ best_directions.find( best_directions.max() ) ]
-		pass
 	npc.direction = _dir
 	npc.velocity = wander_speed * _dir
 	npc.update_direction(global_position + _dir)
