@@ -1,10 +1,12 @@
 extends CanvasLayer
 const MAIN_MENU: String = "res://title_scene/title_screen.tscn"
-@onready var button_save: Button = $Control/HBoxContainer/Button_Save
-@onready var button_load: Button = $Control/HBoxContainer/Button_Load
-@onready var button_quit: Button = $Control/HBoxContainer/Button_Quit
+@onready var tab_container: TabContainer = $Control/TabContainer
 
-@onready var item_description: Label = $Control/ItemDescription
+@onready var button_save: Button = $Control/TabContainer/System/VBoxContainer/Button_Save
+@onready var button_load: Button = $Control/TabContainer/System/VBoxContainer/Button_Load
+@onready var button_quit: Button = $Control/TabContainer/System/VBoxContainer/Button_Quit
+
+@onready var item_description: Label = $Control/TabContainer/Inventory/ItemDescription
 @onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 
 signal shown
@@ -29,6 +31,12 @@ func _unhandled_input(event: InputEvent) -> void:
 		else:
 			hide_pause_menu()
 		get_viewport().set_input_as_handled()
+	
+	if is_paused:
+		if event.is_action_pressed("right_bumper"):
+			change_tab(1)
+		elif event.is_action_pressed("left_bumper"):
+			change_tab(-1)
 
 func show_pause_menu() -> void:
 	get_tree().paused = true
@@ -40,6 +48,7 @@ func show_pause_menu() -> void:
 		button_load.visible = true
 	visible = true
 	is_paused = true
+	tab_container.current_tab = 0
 	shown.emit()
 
 func hide_pause_menu() -> void:
@@ -61,6 +70,7 @@ func _on_load_pressed() -> void:
 
 func _on_quit_pressed() -> void:
 	if !is_paused: return
+	#get_tree().quit()
 	LevelManager.load_new_level(MAIN_MENU, "", Vector2.ZERO)
 	await LevelManager.level_load_started
 	PlayerManager.player.position = Vector2.ZERO
@@ -73,3 +83,7 @@ func update_item_description(new_text: String) -> void:
 func play_audio(audio: AudioStream) -> void:
 	audio_stream_player.stream = audio
 	audio_stream_player.play()
+
+func change_tab(offset: int = 1) -> void:
+	tab_container.current_tab = wrapi(tab_container.current_tab + offset, 0, tab_container.get_tab_count())
+	tab_container.get_tab_bar().grab_focus()

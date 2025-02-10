@@ -18,10 +18,12 @@ func _unhandled_input(event: InputEvent) -> void:
 		#print(get_quest_index_by_title("Recover Lost Magical Flute"))
 		#print(get_quest_index_by_title("Short Quest"))
 		#print("Before: ", current_quests)
-		#update_quest("Recover Lost Magical Flute", "", false)
-		#update_quest("Short Quest")
-		#update_quest("Recover Lost Magical Flute", "Find the Magical Flute", true)
-		#update_quest("Long Quest", "", false)
+		update_quest("Recover Lost Magical Flute", "")
+		update_quest("Recover Lost Magical Flute", "Find the Magical Flute", true)
+		update_quest("Short Quest")
+		update_quest("Long Quest", "")
+		update_quest("Long Quest", "Step 1")
+		update_quest("Long Quest", "Step 2")
 		print("Quests: ", current_quests)
 		#print("------------------------------------------------------")
 		pass
@@ -84,4 +86,18 @@ func get_quest_index_by_title(title: String) -> int:
 	return -1
 
 func sort_quests() -> void:
-	pass
+	var active_quests: Array = []
+	var completed_quests: Array = []
+	for q in current_quests:
+		if q.is_complete:
+			completed_quests.append(q)
+		else:
+			active_quests.append(q)
+	active_quests.sort_custom(sort_quests_ascending)
+	completed_quests.sort_custom(sort_quests_ascending)
+	current_quests = active_quests
+	current_quests.append_array(completed_quests)
+
+func sort_quests_ascending(a, b) -> bool:
+	return a.title < b.title
+		
