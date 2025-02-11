@@ -101,6 +101,7 @@ func set_dialog_choice(d: DialogChoice) -> void:
 
 func _dialog_choice_selected(d: DialogBranch) -> void:
 	choice_options.visible = false
+	d.selected.emit()
 	show_dialog(d.dialog_items)
 
 # DialogText Handlers

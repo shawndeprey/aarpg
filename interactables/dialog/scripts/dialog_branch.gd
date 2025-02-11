@@ -1,6 +1,7 @@
 @tool
 @icon("res://GUI/dialog_system/icons/answer_bubble.svg")
 class_name DialogBranch extends DialogItem
+signal selected
 
 @export var text: String = "Ok..." : set = _set_text
 

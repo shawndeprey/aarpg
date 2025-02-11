@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://c105cledukim2"]
+[gd_scene load_steps=23 format=4 uid="uid://c105cledukim2"]
 
 [ext_resource type="Script" path="res://Levels/Scripts/level.gd" id="1_kbb55"]
 [ext_resource type="AudioStream" uid="uid://c4cghr2amj0nr" path="res://Levels/music/example_music_01.ogg" id="2_p2b06"]
@@ -18,6 +18,10 @@
 [ext_resource type="Script" path="res://interactables/dialog/scripts/dialog_choice.gd" id="16_4aeui"]
 [ext_resource type="Script" path="res://interactables/dialog/scripts/dialog_branch.gd" id="17_kchcd"]
 [ext_resource type="PackedScene" uid="uid://dmklnug1go5j1" path="res://Props/pot/pot.tscn" id="18_7nsnu"]
+[ext_resource type="Resource" uid="uid://beqn5bmhhjh1e" path="res://quests/recover_lost_flute.tres" id="19_f0h3u"]
+[ext_resource type="PackedScene" uid="uid://du45p8lp106kn" path="res://interactables/dungeon/pressure_plate.tscn" id="19_fy8rw"]
+[ext_resource type="PackedScene" uid="uid://t5qs0bu8qaj" path="res://quests/utility_nodes/quest_advance_trigger.tscn" id="20_ai520"]
+[ext_resource type="Resource" uid="uid://dqdlk6qu2vot7" path="res://quests/long_quest.tres" id="21_jndck"]
 
 [node name="02" type="Node2D"]
 script = ExtResource("1_kbb55")
@@ -139,6 +143,15 @@ script = ExtResource("11_i3bl0")
 text = "Oh, and be careful of the [shake]Evil Wizard[/shake] who lurks in the dungeon!"
 npc_info = ExtResource("10_k8vj0")
 
+[node name="QuestAdvanceTrigger" parent="Npc2/DialogInteraction/DialogChoice/DialogBranch" instance=ExtResource("20_ai520")]
+position = Vector2(343, 138)
+signal_name = "selected"
+linked_quest = ExtResource("19_f0h3u")
+settings_summary = "UPDATE QUEST:
+Quest: Recover Lost Magical Flute
+Step: 0 - N/A
+Complete: false"
+
 [node name="DialogBranch2" type="Node" parent="Npc2/DialogInteraction/DialogChoice"]
 script = ExtResource("17_kchcd")
 text = "No way! Are you crazy!?"
@@ -157,3 +170,38 @@ position = Vector2(174, 211)
 
 [node name="Pot3" parent="." instance=ExtResource("18_7nsnu")]
 position = Vector2(203, 211)
+
+[node name="PressurePlate" parent="." instance=ExtResource("19_fy8rw")]
+position = Vector2(245, 230)
+
+[node name="QuestAdvanceTrigger" parent="PressurePlate" instance=ExtResource("20_ai520")]
+signal_name = "activated"
+linked_quest = ExtResource("21_jndck")
+settings_summary = "UPDATE QUEST:
+Quest: Long Quest
+Step: 0 - N/A
+Complete: false"
+
+[node name="PressurePlate2" parent="." instance=ExtResource("19_fy8rw")]
+position = Vector2(288, 230)
+
+[node name="QuestAdvanceTrigger" parent="PressurePlate2" instance=ExtResource("20_ai520")]
+signal_name = "activated"
+linked_quest = ExtResource("21_jndck")
+quest_step = 1
+settings_summary = "UPDATE QUEST:
+Quest: Long Quest
+Step: 1 - Step 1
+Complete: false"
+
+[node name="PressurePlate3" parent="." instance=ExtResource("19_fy8rw")]
+position = Vector2(331, 230)
+
+[node name="QuestAdvanceTrigger" parent="PressurePlate3" instance=ExtResource("20_ai520")]
+signal_name = "activated"
+linked_quest = ExtResource("21_jndck")
+quest_step = 2
+settings_summary = "UPDATE QUEST:
+Quest: Long Quest
+Step: 2 - Step 2
+Complete: false"
