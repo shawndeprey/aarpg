@@ -97,9 +97,3 @@ func hide_children() -> void:
 func _on_quest_updated(_q: Dictionary) -> void:
 	check_is_activated()
 	pass
-
-func get_previous_step() -> String:
-	if quest_step < get_step_count() and quest_step > 1:
-		return linked_quest.steps[quest_step - 2]
-	else:
-		return "N/A"

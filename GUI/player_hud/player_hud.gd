@@ -15,6 +15,7 @@ var hearts: Array[HeartGui] = []
 @onready var boss_hp_bar: TextureProgressBar = $Control/BossUI/TextureProgressBar
 @onready var boss_label: Label = $Control/BossUI/BossName
 
+@onready var notification: NotificationUI = $Control/Notification
 
 func _ready() -> void:
 	for child in $Control/Sprite2D/HFlowContainer.get_children():
@@ -95,3 +96,6 @@ func show_boss_health(_name: String) -> void:
 
 func update_boss_health(hp: int, max_hp: int) -> void:
 	boss_hp_bar.value = clampf(float(hp) / float(max_hp) * 100, 0, 100)
+
+func queue_notification(title: String, message: String) -> void:
+	notification.add_notification_to_queue(title, message)
