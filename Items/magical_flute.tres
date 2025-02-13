@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://ch0iv2yqeb263"]
+
+[ext_resource type="Script" path="res://Items/item_effects/item_effect.gd" id="1_885d4"]
+[ext_resource type="Script" path="res://Items/Scripts/item_data.gd" id="2_krrfy"]
+[ext_resource type="Texture2D" uid="uid://criji330yuw0l" path="res://Items/Sprites/flute.png" id="3_c8xss"]
+
+[resource]
+script = ExtResource("2_krrfy")
+name = "Nero's Magical Flute"
+description = "This is the Magical Flute that Nero lost in the dungeon."
+texture = ExtResource("3_c8xss")
+effects = Array[ExtResource("1_885d4")]([])

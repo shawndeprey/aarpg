@@ -30,6 +30,7 @@ var damage_count: int = 0
 @onready var hand_01_side: Sprite2D = $BossNode/CloakSprite/Hand01_SIDE
 @onready var hand_02_side: Sprite2D = $BossNode/CloakSprite/Hand02_SIDE
 @onready var door_block: TileMapLayer = $"../DoorBlock"
+@onready var item_dropper: ItemDropper = $ItemDropper
 
 func _ready() -> void:
 	persistent_data_handler.get_value()
@@ -168,11 +169,17 @@ func defeat() -> void:
 	animation_player.play("destroy")
 	enable_hit_boxes(false)
 	PlayerHud.hide_boss_health()
-	persistent_data_handler.set_value()
 	await animation_player.animation_finished
-	door_block.enabled = false
-	queue_free()
+	item_dropper.position = boss_node.position
+	item_dropper.drop_item()
+	item_dropper.drop_collected.connect(open_dungeon)
 
+func open_dungeon() -> void:
+	persistent_data_handler.set_value()
+	door_block.enabled = false
+	await get_tree().create_timer(0.5).timeout
+	queue_free()
+	
 func enable_hit_boxes(_v: bool = true) -> void:
 	hit_box.set_deferred("monitorable", _v)
 	hurt_box.set_deferred("monitoring", _v)
