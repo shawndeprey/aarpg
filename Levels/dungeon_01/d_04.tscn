@@ -1,12 +1,12 @@
 [gd_scene load_steps=43 format=4 uid="uid://cn6miw8773nwb"]
 
-[ext_resource type="Script" path="res://Levels/Scripts/level.gd" id="1_ysnhd"]
+[ext_resource type="Script" uid="uid://bfjs60wrwjoa4" path="res://Levels/Scripts/level.gd" id="1_ysnhd"]
 [ext_resource type="PackedScene" uid="uid://cqkbam7xsllkw" path="res://Tile Maps/dungeon_01.tscn" id="2_i4h0y"]
 [ext_resource type="AudioStream" uid="uid://d3q2qqfykd5kh" path="res://Levels/music/example_music_03.ogg" id="2_lrgta"]
 [ext_resource type="PackedScene" uid="uid://d2ipprfu64xk0" path="res://Levels/player_spawn.tscn" id="3_sl4dc"]
 [ext_resource type="PackedScene" uid="uid://boo2hdty4mmwe" path="res://Levels/level_transition.tscn" id="4_d104x"]
 [ext_resource type="PackedScene" uid="uid://bsg3vnt3ap4wj" path="res://Props/torches/torch_dungeon.tscn" id="6_n1gmy"]
-[ext_resource type="Script" path="res://Levels/dungeon_01/dark_wizard/scripts/dark_wizard_boss.gd" id="7_abjhh"]
+[ext_resource type="Script" uid="uid://b5m5wqtsfxmvn" path="res://Levels/dungeon_01/dark_wizard/scripts/dark_wizard_boss.gd" id="7_abjhh"]
 [ext_resource type="Texture2D" uid="uid://4tgslrfyly1e" path="res://Levels/dungeon_01/dark_wizard/sprites/boss-cloak.png" id="7_f74ur"]
 [ext_resource type="PackedScene" uid="uid://bakn3ov0guq6c" path="res://GeneralNodes/persistent_data_handler/persistent_data_handler.tscn" id="7_rkqbr"]
 [ext_resource type="Texture2D" uid="uid://creth475yy4ep" path="res://Levels/dungeon_01/dark_wizard/sprites/boss-hand.png" id="8_tb5sc"]
@@ -99,10 +99,10 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mcad1"]
 _data = {
-"RESET": SubResource("Animation_p5cnr"),
-"down": SubResource("Animation_yx8c7"),
-"side": SubResource("Animation_tmvvk"),
-"up": SubResource("Animation_q275g")
+&"RESET": SubResource("Animation_p5cnr"),
+&"down": SubResource("Animation_yx8c7"),
+&"side": SubResource("Animation_tmvvk"),
+&"up": SubResource("Animation_q275g")
 }
 
 [sub_resource type="Gradient" id="Gradient_nysh5"]
@@ -630,12 +630,12 @@ tracks/5/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0vqrl"]
 _data = {
-"RESET": SubResource("Animation_uadnl"),
-"appear": SubResource("Animation_nhis6"),
-"cast_spell": SubResource("Animation_rekti"),
-"destroy": SubResource("Animation_ygx4r"),
-"disappear": SubResource("Animation_unhon"),
-"idle": SubResource("Animation_ocqwh")
+&"RESET": SubResource("Animation_uadnl"),
+&"appear": SubResource("Animation_nhis6"),
+&"cast_spell": SubResource("Animation_rekti"),
+&"destroy": SubResource("Animation_ygx4r"),
+&"disappear": SubResource("Animation_unhon"),
+&"idle": SubResource("Animation_ocqwh")
 }
 
 [sub_resource type="Animation" id="Animation_7gx2i"]
@@ -686,9 +686,9 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hcub2"]
 _data = {
-"RESET": SubResource("Animation_7gx2i"),
-"damaged": SubResource("Animation_w5khg"),
-"default": SubResource("Animation_i3ai3")
+&"RESET": SubResource("Animation_7gx2i"),
+&"damaged": SubResource("Animation_w5khg"),
+&"default": SubResource("Animation_i3ai3")
 }
 
 [sub_resource type="Gradient" id="Gradient_lrn33"]

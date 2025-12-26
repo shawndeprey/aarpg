@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://daq6qxbquaspw"]
 
-[ext_resource type="Script" path="res://interactables/throwable/throwable.gd" id="1_ay7mq"]
-[ext_resource type="Script" path="res://GeneralNodes/Hurtbox/hurt_box.gd" id="2_2iovg"]
+[ext_resource type="Script" uid="uid://b6vhy6aoshj0e" path="res://interactables/throwable/throwable.gd" id="1_ay7mq"]
+[ext_resource type="Script" uid="uid://dpso7rnhq0ae" path="res://GeneralNodes/Hurtbox/hurt_box.gd" id="2_2iovg"]
 
 [node name="Throwable" type="Area2D"]
 collision_layer = 0

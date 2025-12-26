@@ -1,13 +1,13 @@
 [gd_scene load_steps=13 format=3 uid="uid://bpe4kqt0x2wam"]
 
-[ext_resource type="Script" path="res://GUI/pause_menu/pause_menu.gd" id="1_m3t13"]
+[ext_resource type="Script" uid="uid://duc57lnweuhdp" path="res://GUI/pause_menu/pause_menu.gd" id="1_m3t13"]
 [ext_resource type="Texture2D" uid="uid://sxya84p07rmh" path="res://Items/Sprites/items.png" id="2_6d2vv"]
 [ext_resource type="PackedScene" uid="uid://crdu7kagr00" path="res://GUI/pause_menu/inventory/inventory_slot.tscn" id="3_2qcj2"]
-[ext_resource type="Script" path="res://GUI/pause_menu/inventory/scripts/inventory_ui.gd" id="3_l4f3o"]
+[ext_resource type="Script" uid="uid://c53cubj6xa2v2" path="res://GUI/pause_menu/inventory/scripts/inventory_ui.gd" id="3_l4f3o"]
 [ext_resource type="Resource" uid="uid://crgd6ve5nyado" path="res://GUI/pause_menu/inventory/player_inventory.tres" id="4_3mgdn"]
 [ext_resource type="PackedScene" uid="uid://cuev4bg4jcldx" path="res://GUI/pause_menu/quests/quest_item.tscn" id="6_5jd4r"]
 [ext_resource type="FontFile" uid="uid://qaf70rctq75y" path="res://GUI/fonts/Abaddon Bold.ttf" id="6_wwfe1"]
-[ext_resource type="Script" path="res://GUI/pause_menu/quests_ui.gd" id="6_y0k0j"]
+[ext_resource type="Script" uid="uid://cvkflal1d5vm2" path="res://GUI/pause_menu/quests_ui.gd" id="6_y0k0j"]
 [ext_resource type="FontFile" uid="uid://r3l05ecw1xlq" path="res://GUI/fonts/m5x7.ttf" id="7_fvyhd"]
 [ext_resource type="PackedScene" uid="uid://ccxo5brhrjvuh" path="res://GUI/pause_menu/quests/quest_step_item.tscn" id="10_l1npw"]
 

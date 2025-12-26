@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://j8aa52yimhwi"]
 
 [ext_resource type="Texture2D" uid="uid://cvr8jyid62uof" path="res://title_scene/sprites/Logo.png" id="1_4mb34"]
-[ext_resource type="Script" path="res://title_scene/splash_screen.gd" id="1_mrqy6"]
+[ext_resource type="Script" uid="uid://c1c1m0fwxa1si" path="res://title_scene/splash_screen.gd" id="1_mrqy6"]
 [ext_resource type="AudioStream" uid="uid://catdpgm0v86r7" path="res://title_scene/audio/splash-sound.mp3" id="2_lx46o"]
 
 [sub_resource type="Gradient" id="Gradient_47us6"]
@@ -135,8 +135,8 @@ tracks/4/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_q3ofy"]
 _data = {
-"RESET": SubResource("Animation_ss122"),
-"splash": SubResource("Animation_rocsy")
+&"RESET": SubResource("Animation_ss122"),
+&"splash": SubResource("Animation_rocsy")
 }
 
 [node name="SplashScreen" type="Control"]

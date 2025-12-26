@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bi0cvfy43yg5k" path="res://Props/Sprites/Props.png" id="2_d3t77"]
 [ext_resource type="AudioStream" uid="uid://dpepd6nn8juff" path="res://Props/pot/pot_destroy.wav" id="2_s5x2r"]
-[ext_resource type="Script" path="res://01_nodes/collidable_2d.gd" id="3_1yo0u"]
+[ext_resource type="Script" uid="uid://cldoduufryy0s" path="res://01_nodes/collidable_2d.gd" id="3_1yo0u"]
 [ext_resource type="PackedScene" uid="uid://daq6qxbquaspw" path="res://interactables/throwable/throwable.tscn" id="3_5eqe1"]
 
 [sub_resource type="Gradient" id="Gradient_x7lxm"]
@@ -103,9 +103,9 @@ tracks/2/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2ejkf"]
 _data = {
-"RESET": SubResource("Animation_bkmwb"),
-"default": SubResource("Animation_2d723"),
-"destroy": SubResource("Animation_47861")
+&"RESET": SubResource("Animation_bkmwb"),
+&"default": SubResource("Animation_2d723"),
+&"destroy": SubResource("Animation_47861")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qy618"]

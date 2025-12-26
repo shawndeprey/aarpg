@@ -1,19 +1,19 @@
 [gd_scene load_steps=39 format=3 uid="uid://c0pyn5wtg67op"]
 
 [ext_resource type="Texture2D" uid="uid://bhxyy3a36layn" path="res://Player/Sprites/Shadow.png" id="1_ty5ey"]
-[ext_resource type="Script" path="res://Enemies/Scripts/enemy.gd" id="1_ye830"]
+[ext_resource type="Script" uid="uid://cqg0w4t8ot367" path="res://Enemies/Scripts/enemy.gd" id="1_ye830"]
 [ext_resource type="Texture2D" uid="uid://dwj2dpb1r5nfg" path="res://Enemies/Slime/Slime.png" id="2_ymapi"]
-[ext_resource type="Script" path="res://Enemies/Scripts/enemy_state_machine.gd" id="4_6jdiy"]
+[ext_resource type="Script" uid="uid://djutx1am1nac6" path="res://Enemies/Scripts/enemy_state_machine.gd" id="4_6jdiy"]
 [ext_resource type="AudioStream" uid="uid://blfltvhm4vgi4" path="res://Enemies/Slime/hit_01.wav" id="4_wt3q4"]
 [ext_resource type="AudioStream" uid="uid://xwe1pjnoukx" path="res://Enemies/Slime/hit_00.wav" id="5_h8xpb"]
-[ext_resource type="Script" path="res://Enemies/Scripts/States/enemy_state_idle.gd" id="5_t480k"]
-[ext_resource type="Script" path="res://Enemies/Scripts/States/enemy_state_wander.gd" id="6_du6cf"]
-[ext_resource type="Script" path="res://Enemies/Scripts/States/enemy_state_stun.gd" id="9_wuyou"]
+[ext_resource type="Script" uid="uid://lrye1k8f2vcl" path="res://Enemies/Scripts/States/enemy_state_idle.gd" id="5_t480k"]
+[ext_resource type="Script" uid="uid://svthijyqovbm" path="res://Enemies/Scripts/States/enemy_state_wander.gd" id="6_du6cf"]
+[ext_resource type="Script" uid="uid://sllxdhf1unb7" path="res://Enemies/Scripts/States/enemy_state_stun.gd" id="9_wuyou"]
 [ext_resource type="PackedScene" uid="uid://diwdjm6qll7lo" path="res://GeneralNodes/Hurtbox/hurt_box.tscn" id="9_x3b1i"]
 [ext_resource type="PackedScene" uid="uid://c0k4pgmtjjrfq" path="res://GeneralNodes/Hitbox/hit_box.tscn" id="10_ang42"]
 [ext_resource type="Texture2D" uid="uid://b03cnk0oyp5ob" path="res://Enemies/Slime/DestroySmoke.png" id="10_t1rqg"]
-[ext_resource type="Script" path="res://Enemies/Scripts/States/enemy_state_destroy.gd" id="10_yu5nd"]
-[ext_resource type="Script" path="res://Enemies/Scripts/drop_data.gd" id="11_xhnnw"]
+[ext_resource type="Script" uid="uid://crd3xb37frnc2" path="res://Enemies/Scripts/States/enemy_state_destroy.gd" id="10_yu5nd"]
+[ext_resource type="Script" uid="uid://cw308fg7rufdu" path="res://Enemies/Scripts/drop_data.gd" id="11_xhnnw"]
 [ext_resource type="Resource" uid="uid://c45x6f8ur33sl" path="res://Items/gem.tres" id="12_xgks2"]
 [ext_resource type="Resource" uid="uid://dtpjct7gpiff3" path="res://Items/apple.tres" id="13_rcoth"]
 
@@ -812,19 +812,19 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_i0kqs"]
 _data = {
-"RESET": SubResource("Animation_pgobq"),
-"destroy_down": SubResource("Animation_cxvpw"),
-"destroy_side": SubResource("Animation_0kttk"),
-"destroy_up": SubResource("Animation_8q0bp"),
-"idle_down": SubResource("Animation_x3fqk"),
-"idle_side": SubResource("Animation_oxn3w"),
-"idle_up": SubResource("Animation_4dvu6"),
-"stun_down": SubResource("Animation_lgp18"),
-"stun_side": SubResource("Animation_iblar"),
-"stun_up": SubResource("Animation_ldmog"),
-"walk_down": SubResource("Animation_fa3fg"),
-"walk_side": SubResource("Animation_pkf4v"),
-"walk_up": SubResource("Animation_i61hu")
+&"RESET": SubResource("Animation_pgobq"),
+&"destroy_down": SubResource("Animation_cxvpw"),
+&"destroy_side": SubResource("Animation_0kttk"),
+&"destroy_up": SubResource("Animation_8q0bp"),
+&"idle_down": SubResource("Animation_x3fqk"),
+&"idle_side": SubResource("Animation_oxn3w"),
+&"idle_up": SubResource("Animation_4dvu6"),
+&"stun_down": SubResource("Animation_lgp18"),
+&"stun_side": SubResource("Animation_iblar"),
+&"stun_up": SubResource("Animation_ldmog"),
+&"walk_down": SubResource("Animation_fa3fg"),
+&"walk_side": SubResource("Animation_pkf4v"),
+&"walk_up": SubResource("Animation_i61hu")
 }
 
 [sub_resource type="Resource" id="Resource_plqm1"]
@@ -903,8 +903,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jatlc"]
 _data = {
-"RESET": SubResource("Animation_edylh"),
-"destroy": SubResource("Animation_6h7f7")
+&"RESET": SubResource("Animation_edylh"),
+&"destroy": SubResource("Animation_6h7f7")
 }
 
 [node name="Slime" type="CharacterBody2D"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://codxt87a0ed21"]
 
-[ext_resource type="Script" path="res://GeneralNodes/item_magnet/item_magnet.gd" id="1_wlfl5"]
+[ext_resource type="Script" uid="uid://de137pksrnece" path="res://GeneralNodes/item_magnet/item_magnet.gd" id="1_wlfl5"]
 [ext_resource type="AudioStream" uid="uid://d3bq1q6djroj6" path="res://Player/Audio/catch.wav" id="2_wh8m3"]
 
 [node name="ItemMagnet" type="Area2D"]

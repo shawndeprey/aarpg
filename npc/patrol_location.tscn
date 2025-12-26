@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://cgqxs8s73xa3d"]
 
-[ext_resource type="Script" path="res://npc/scripts/patrol_location.gd" id="1_65qan"]
+[ext_resource type="Script" uid="uid://dgwo544a8ddjn" path="res://npc/scripts/patrol_location.gd" id="1_65qan"]
 [ext_resource type="FontFile" uid="uid://dt4jyfsh8ybd8" path="res://GUI/fonts/Abaddon Light.ttf" id="2_autmv"]
 [ext_resource type="FontFile" uid="uid://r3l05ecw1xlq" path="res://GUI/fonts/m5x7.ttf" id="3_lkdqh"]
 

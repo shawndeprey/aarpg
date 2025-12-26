@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=4 uid="uid://dmht2rhm65h4g"]
 
-[ext_resource type="Script" path="res://title_scene/title_screen.gd" id="1_3vdtc"]
+[ext_resource type="Script" uid="uid://be2k3bevg5ftb" path="res://title_scene/title_screen.gd" id="1_3vdtc"]
 [ext_resource type="PackedScene" uid="uid://cqkbam7xsllkw" path="res://Tile Maps/dungeon_01.tscn" id="1_ne7o1"]
 [ext_resource type="AudioStream" uid="uid://b5qyigj61ypyr" path="res://title_scene/audio/waves.mp3" id="2_hh7rp"]
 [ext_resource type="Texture2D" uid="uid://diapsv1g6d3jd" path="res://interactables/dungeon/dungeon_props.png" id="2_kq312"]
@@ -45,8 +45,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ehydx"]
 _data = {
-"RESET": SubResource("Animation_2i0na"),
-"default": SubResource("Animation_q4mge")
+&"RESET": SubResource("Animation_2i0na"),
+&"default": SubResource("Animation_q4mge")
 }
 
 [node name="TitleScreen" type="Node2D"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://bn7v7t45jj16k"]
 
-[ext_resource type="Script" path="res://npc/scripts/npc.gd" id="1_10yh6"]
+[ext_resource type="Script" uid="uid://bsslgy7ie6h2w" path="res://npc/scripts/npc.gd" id="1_10yh6"]
 [ext_resource type="Texture2D" uid="uid://cuhhtcm5nf83g" path="res://npc/sprites/npc_sprite.png" id="2_jev86"]
 [ext_resource type="Texture2D" uid="uid://bhxyy3a36layn" path="res://Player/Sprites/Shadow.png" id="3_571ep"]
 
@@ -121,13 +121,13 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_78kei"]
 _data = {
-"RESET": SubResource("Animation_noaif"),
-"idle_down": SubResource("Animation_pe5wc"),
-"idle_side": SubResource("Animation_te1ku"),
-"idle_up": SubResource("Animation_ecg4s"),
-"walk_down": SubResource("Animation_fft8i"),
-"walk_side": SubResource("Animation_ov7n1"),
-"walk_up": SubResource("Animation_x32qp")
+&"RESET": SubResource("Animation_noaif"),
+&"idle_down": SubResource("Animation_pe5wc"),
+&"idle_side": SubResource("Animation_te1ku"),
+&"idle_up": SubResource("Animation_ecg4s"),
+&"walk_down": SubResource("Animation_fft8i"),
+&"walk_side": SubResource("Animation_ov7n1"),
+&"walk_up": SubResource("Animation_x32qp")
 }
 
 [node name="Npc" type="CharacterBody2D"]

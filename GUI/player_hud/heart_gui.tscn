@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://y55kvbo36gkr"]
 
-[ext_resource type="Script" path="res://GUI/player_hud/heart_gui.gd" id="1_pisvw"]
+[ext_resource type="Script" uid="uid://bo7bjk5v027bp" path="res://GUI/player_hud/heart_gui.gd" id="1_pisvw"]
 [ext_resource type="Texture2D" uid="uid://cj0t2laajr8n1" path="res://GUI/player_hud/gui-health.png" id="1_ti127"]
 
 [node name="Heart" type="Control"]

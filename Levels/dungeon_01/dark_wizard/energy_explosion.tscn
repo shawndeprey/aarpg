@@ -50,8 +50,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_efang"]
 _data = {
-"RESET": SubResource("Animation_prkj7"),
-"explode": SubResource("Animation_d8xb6")
+&"RESET": SubResource("Animation_prkj7"),
+&"explode": SubResource("Animation_d8xb6")
 }
 
 [sub_resource type="Gradient" id="Gradient_5b7o5"]

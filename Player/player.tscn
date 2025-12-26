@@ -1,34 +1,34 @@
 [gd_scene load_steps=88 format=3 uid="uid://b0oq4q0m4jmwg"]
 
-[ext_resource type="Script" path="res://Player/Scripts/player.gd" id="1_ettd6"]
+[ext_resource type="Script" uid="uid://bu6nnhlv0upt7" path="res://Player/Scripts/player.gd" id="1_ettd6"]
 [ext_resource type="Texture2D" uid="uid://cmeg2vhxmbn0c" path="res://Player/Sprites/player_sprite.png" id="2_lnhu0"]
-[ext_resource type="Script" path="res://Player/Scripts/player_state_machine.gd" id="3_1pnkn"]
+[ext_resource type="Script" uid="uid://b2sb5rtbifuo2" path="res://Player/Scripts/player_state_machine.gd" id="3_1pnkn"]
 [ext_resource type="Texture2D" uid="uid://bhxyy3a36layn" path="res://Player/Sprites/Shadow.png" id="3_s61ju"]
 [ext_resource type="Texture2D" uid="uid://de7pn7wjgokhu" path="res://Player/Sprites/AttackSprite01.png" id="3_tu8us"]
-[ext_resource type="Script" path="res://Player/Scripts/state_idle.gd" id="4_661sl"]
-[ext_resource type="Script" path="res://Player/Scripts/state_walk.gd" id="5_ev553"]
+[ext_resource type="Script" uid="uid://64vflnweebv8" path="res://Player/Scripts/state_idle.gd" id="4_661sl"]
+[ext_resource type="Script" uid="uid://batvytprdumm0" path="res://Player/Scripts/state_walk.gd" id="5_ev553"]
 [ext_resource type="Texture2D" uid="uid://c0adjap30g42u" path="res://Player/Sprites/spin_effect.png" id="6_oeltt"]
-[ext_resource type="Script" path="res://Player/Scripts/state_attack.gd" id="6_ru0hp"]
+[ext_resource type="Script" uid="uid://bcu6l5cpjudxg" path="res://Player/Scripts/state_attack.gd" id="6_ru0hp"]
 [ext_resource type="AudioStream" uid="uid://c2udhiiwej3u8" path="res://Player/Audio/SwordSwoosh.wav" id="8_l4e12"]
-[ext_resource type="Script" path="res://Player/Scripts/player_interactions_host.gd" id="10_lbew2"]
+[ext_resource type="Script" uid="uid://dvr0edarrw5qj" path="res://Player/Scripts/player_interactions_host.gd" id="10_lbew2"]
 [ext_resource type="PackedScene" uid="uid://diwdjm6qll7lo" path="res://GeneralNodes/Hurtbox/hurt_box.tscn" id="10_t8hol"]
-[ext_resource type="Script" path="res://Player/Scripts/state_stun.gd" id="11_3qxhj"]
-[ext_resource type="Script" path="res://Player/Scripts/player_camera.gd" id="11_af0eh"]
-[ext_resource type="Script" path="res://Player/Scripts/state_charge_attack.gd" id="12_uy67k"]
+[ext_resource type="Script" uid="uid://b0k6q3ru476lp" path="res://Player/Scripts/state_stun.gd" id="11_3qxhj"]
+[ext_resource type="Script" uid="uid://r6e78ilk7kng" path="res://Player/Scripts/player_camera.gd" id="11_af0eh"]
+[ext_resource type="Script" uid="uid://c7ow8qu87nkaa" path="res://Player/Scripts/state_charge_attack.gd" id="12_uy67k"]
 [ext_resource type="AudioStream" uid="uid://dl0sfsvua730k" path="res://Player/Audio/charged.wav" id="13_jhu1q"]
 [ext_resource type="PackedScene" uid="uid://c0k4pgmtjjrfq" path="res://GeneralNodes/Hitbox/hit_box.tscn" id="13_yaxfq"]
-[ext_resource type="Script" path="res://Player/Scripts/push_area.gd" id="14_37mhr"]
+[ext_resource type="Script" uid="uid://bojdh7mpnipm1" path="res://Player/Scripts/push_area.gd" id="14_37mhr"]
 [ext_resource type="AudioStream" uid="uid://c1axsrr55h37l" path="res://Player/Audio/spin-attack.wav" id="14_5714b"]
 [ext_resource type="AudioStream" uid="uid://bucg4e0357hg8" path="res://Player/Audio/hit_player.wav" id="14_it1kb"]
-[ext_resource type="Script" path="res://Player/Scripts/abilities/abilities.gd" id="17_00mpp"]
-[ext_resource type="Script" path="res://Player/Scripts/state_lift.gd" id="17_smhse"]
-[ext_resource type="Script" path="res://Player/Scripts/state_carry.gd" id="18_2a5lt"]
+[ext_resource type="Script" uid="uid://s57vvsign8ay" path="res://Player/Scripts/abilities/abilities.gd" id="17_00mpp"]
+[ext_resource type="Script" uid="uid://blh7bw71a4tg7" path="res://Player/Scripts/state_lift.gd" id="17_smhse"]
+[ext_resource type="Script" uid="uid://bligjs8ux6x8a" path="res://Player/Scripts/state_carry.gd" id="18_2a5lt"]
 [ext_resource type="AudioStream" uid="uid://bste0se43d3om" path="res://Player/Audio/huwh.wav" id="18_lbmo7"]
 [ext_resource type="PackedScene" uid="uid://codxt87a0ed21" path="res://GeneralNodes/item_magnet/item_magnet.tscn" id="18_wk00j"]
 [ext_resource type="AudioStream" uid="uid://bcbwyt67320jk" path="res://Player/Audio/throw.wav" id="20_57a3e"]
-[ext_resource type="Script" path="res://Player/Scripts/state_death.gd" id="21_win64"]
+[ext_resource type="Script" uid="uid://c3lxgyvlq3xbc" path="res://Player/Scripts/state_death.gd" id="21_win64"]
 [ext_resource type="AudioStream" uid="uid://np686ytxo27t" path="res://Player/Audio/exhausted.wav" id="22_f8ie1"]
-[ext_resource type="Script" path="res://Player/Scripts/state_lower.gd" id="23_oip4l"]
+[ext_resource type="Script" uid="uid://b4ilw3uhtqbp1" path="res://Player/Scripts/state_lower.gd" id="23_oip4l"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xrgyj"]
 
@@ -257,11 +257,11 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ts28v"]
 _data = {
-"RESET": SubResource("Animation_itq61"),
-"attack_down": SubResource("Animation_c1txc"),
-"attack_side": SubResource("Animation_bgnbr"),
-"attack_up": SubResource("Animation_pp0fo"),
-"no_attack": SubResource("Animation_cu7e5")
+&"RESET": SubResource("Animation_itq61"),
+&"attack_down": SubResource("Animation_c1txc"),
+&"attack_side": SubResource("Animation_bgnbr"),
+&"attack_up": SubResource("Animation_pp0fo"),
+&"no_attack": SubResource("Animation_cu7e5")
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_37sjf"]
@@ -350,8 +350,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_36lsh"]
 _data = {
-"RESET": SubResource("Animation_d28yd"),
-"spin": SubResource("Animation_h2i8n")
+&"RESET": SubResource("Animation_d28yd"),
+&"spin": SubResource("Animation_h2i8n")
 }
 
 [sub_resource type="Animation" id="Animation_l8jvb"]
@@ -1542,39 +1542,39 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_155ft"]
 _data = {
-"RESET": SubResource("Animation_l8jvb"),
-"attack_down": SubResource("Animation_fpwig"),
-"attack_side": SubResource("Animation_n461s"),
-"attack_up": SubResource("Animation_t4rwc"),
-"carry_down": SubResource("Animation_2q18m"),
-"carry_side": SubResource("Animation_ga3ld"),
-"carry_up": SubResource("Animation_aq3j6"),
-"carry_walk_down": SubResource("Animation_533h3"),
-"carry_walk_side": SubResource("Animation_7qwla"),
-"carry_walk_up": SubResource("Animation_5anhw"),
-"charge_attack": SubResource("Animation_lqxa8"),
-"charge_down": SubResource("Animation_cu2gc"),
-"charge_side": SubResource("Animation_fr80c"),
-"charge_up": SubResource("Animation_fan8j"),
-"charge_walk_down": SubResource("Animation_k2vp6"),
-"charge_walk_side": SubResource("Animation_5k7g0"),
-"charge_walk_up": SubResource("Animation_i4drr"),
-"death": SubResource("Animation_4soop"),
-"idle_down": SubResource("Animation_y4xq6"),
-"idle_side": SubResource("Animation_u00w8"),
-"idle_up": SubResource("Animation_gk0as"),
-"lift_down": SubResource("Animation_hyug8"),
-"lift_side": SubResource("Animation_6fber"),
-"lift_up": SubResource("Animation_rtdfx"),
-"lower_down": SubResource("Animation_605g5"),
-"lower_side": SubResource("Animation_1dc5t"),
-"lower_up": SubResource("Animation_ktn0r"),
-"stun_down": SubResource("Animation_tsvj1"),
-"stun_side": SubResource("Animation_k3m2n"),
-"stun_up": SubResource("Animation_812hh"),
-"walk_down": SubResource("Animation_cxuou"),
-"walk_side": SubResource("Animation_ms101"),
-"walk_up": SubResource("Animation_mp0hd")
+&"RESET": SubResource("Animation_l8jvb"),
+&"attack_down": SubResource("Animation_fpwig"),
+&"attack_side": SubResource("Animation_n461s"),
+&"attack_up": SubResource("Animation_t4rwc"),
+&"carry_down": SubResource("Animation_2q18m"),
+&"carry_side": SubResource("Animation_ga3ld"),
+&"carry_up": SubResource("Animation_aq3j6"),
+&"carry_walk_down": SubResource("Animation_533h3"),
+&"carry_walk_side": SubResource("Animation_7qwla"),
+&"carry_walk_up": SubResource("Animation_5anhw"),
+&"charge_attack": SubResource("Animation_lqxa8"),
+&"charge_down": SubResource("Animation_cu2gc"),
+&"charge_side": SubResource("Animation_fr80c"),
+&"charge_up": SubResource("Animation_fan8j"),
+&"charge_walk_down": SubResource("Animation_k2vp6"),
+&"charge_walk_side": SubResource("Animation_5k7g0"),
+&"charge_walk_up": SubResource("Animation_i4drr"),
+&"death": SubResource("Animation_4soop"),
+&"idle_down": SubResource("Animation_y4xq6"),
+&"idle_side": SubResource("Animation_u00w8"),
+&"idle_up": SubResource("Animation_gk0as"),
+&"lift_down": SubResource("Animation_hyug8"),
+&"lift_side": SubResource("Animation_6fber"),
+&"lift_up": SubResource("Animation_rtdfx"),
+&"lower_down": SubResource("Animation_605g5"),
+&"lower_side": SubResource("Animation_1dc5t"),
+&"lower_up": SubResource("Animation_ktn0r"),
+&"stun_down": SubResource("Animation_tsvj1"),
+&"stun_side": SubResource("Animation_k3m2n"),
+&"stun_up": SubResource("Animation_812hh"),
+&"walk_down": SubResource("Animation_cxuou"),
+&"walk_side": SubResource("Animation_ms101"),
+&"walk_up": SubResource("Animation_mp0hd")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_op1kd"]
@@ -1646,9 +1646,9 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_i6o7s"]
 _data = {
-"RESET": SubResource("Animation_76e6b"),
-"damaged": SubResource("Animation_x4d1a"),
-"default": SubResource("Animation_bc45j")
+&"RESET": SubResource("Animation_76e6b"),
+&"damaged": SubResource("Animation_x4d1a"),
+&"default": SubResource("Animation_bc45j")
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pj1hr"]

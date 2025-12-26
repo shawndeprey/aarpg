@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://bsg3vnt3ap4wj"]
 
 [ext_resource type="Texture2D" uid="uid://becuk5w4gbkgk" path="res://Props/torches/torch.png" id="1_lam8f"]
-[ext_resource type="Script" path="res://Props/torches/torch_light_flighter.gd" id="2_nxx2b"]
+[ext_resource type="Script" uid="uid://c1kwdkqrqkbof" path="res://Props/torches/torch_light_flighter.gd" id="2_nxx2b"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lihdq"]
 radius = 4.0
@@ -41,8 +41,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_g6oks"]
 _data = {
-"RESET": SubResource("Animation_tyarh"),
-"default": SubResource("Animation_3xlse")
+&"RESET": SubResource("Animation_tyarh"),
+&"default": SubResource("Animation_3xlse")
 }
 
 [sub_resource type="Gradient" id="Gradient_4vq3w"]
@@ -75,7 +75,7 @@ shape = SubResource("CapsuleShape2D_lihdq")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_g6oks")
+&"": SubResource("AnimationLibrary_g6oks")
 }
 autoplay = "default"
 

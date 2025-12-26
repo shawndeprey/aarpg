@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=3 uid="uid://l42n88oh8mqb"]
 
 [ext_resource type="Texture2D" uid="uid://diapsv1g6d3jd" path="res://interactables/dungeon/dungeon_props.png" id="1_1nmdw"]
-[ext_resource type="Script" path="res://interactables/dungeon/scripts/locked_door.gd" id="1_ypqxo"]
+[ext_resource type="Script" uid="uid://nn03bg7cww70" path="res://interactables/dungeon/scripts/locked_door.gd" id="1_ypqxo"]
 [ext_resource type="PackedScene" uid="uid://bakn3ov0guq6c" path="res://GeneralNodes/persistent_data_handler/persistent_data_handler.tscn" id="2_e2rse"]
 [ext_resource type="Resource" uid="uid://crgsaqeofb0pp" path="res://Items/key_dungeon.tres" id="2_q3vii"]
 [ext_resource type="AudioStream" uid="uid://dfcea2dkfvie" path="res://interactables/dungeon/locked_door.wav" id="3_c57g8"]
@@ -9,33 +9,6 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_170n0"]
 size = Vector2(64, 61)
-
-[sub_resource type="Animation" id="Animation_titqg"]
-resource_name = "closed"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("StaticBody2D/CollisionShape2D:disabled")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
 
 [sub_resource type="Animation" id="Animation_ureiv"]
 length = 0.001
@@ -62,33 +35,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
-}
-
-[sub_resource type="Animation" id="Animation_ff4sy"]
-resource_name = "opened"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("StaticBody2D/CollisionShape2D:disabled")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_d136v"]
@@ -118,6 +64,33 @@ tracks/1/keys = {
 "values": [true, false]
 }
 
+[sub_resource type="Animation" id="Animation_titqg"]
+resource_name = "closed"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StaticBody2D/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
 [sub_resource type="Animation" id="Animation_hbt1w"]
 resource_name = "open_door"
 tracks/0/type = "value"
@@ -145,13 +118,40 @@ tracks/1/keys = {
 "values": [false, true]
 }
 
+[sub_resource type="Animation" id="Animation_ff4sy"]
+resource_name = "opened"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StaticBody2D/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0vg23"]
 _data = {
-"RESET": SubResource("Animation_ureiv"),
-"close_door": SubResource("Animation_d136v"),
-"closed": SubResource("Animation_titqg"),
-"open_door": SubResource("Animation_hbt1w"),
-"opened": SubResource("Animation_ff4sy")
+&"RESET": SubResource("Animation_ureiv"),
+&"close_door": SubResource("Animation_d136v"),
+&"closed": SubResource("Animation_titqg"),
+&"open_door": SubResource("Animation_hbt1w"),
+&"opened": SubResource("Animation_ff4sy")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rja5o"]

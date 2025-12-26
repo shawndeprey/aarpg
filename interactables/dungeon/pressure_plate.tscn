@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://du45p8lp106kn"]
 
-[ext_resource type="Script" path="res://interactables/dungeon/scripts/pressure_plate.gd" id="1_4ff8m"]
+[ext_resource type="Script" uid="uid://bjimpvcnmbyf2" path="res://interactables/dungeon/scripts/pressure_plate.gd" id="1_4ff8m"]
 [ext_resource type="Texture2D" uid="uid://diapsv1g6d3jd" path="res://interactables/dungeon/dungeon_props.png" id="2_ybcus"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r6teq"]
